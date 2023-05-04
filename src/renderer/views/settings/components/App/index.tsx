@@ -5,6 +5,7 @@ import { SettingsSection } from '../../store';
 import { Appearance } from '../Appearance';
 import { AddressBar, ManageSearchEngines } from '../AddressBar';
 import { Privacy } from '../Privacy';
+import { About } from '../About';
 import store from '../../store';
 import { NavigationDrawer } from '~/renderer/components/NavigationDrawer';
 import { Button } from '~/renderer/components/Button';
@@ -17,6 +18,7 @@ import { Downloads } from '../Downloads';
 import {
   ICON_PALETTE,
   ICON_AUTOFILL,
+  ICON_ABOUT,
   ICON_POWER,
   ICON_SEARCH,
   ICON_DOWNLOAD,
@@ -256,6 +258,9 @@ export default observer(() => {
           <MenuItem icon={ICON_SHIELD} section="privacy">
             Privacy
           </MenuItem>
+          <MenuItem icon={ICON_ABOUT} section="about">
+            About
+          </MenuItem>
           {/* <MenuItem section="permissions">Site permissions</MenuItem> */}
 
           {/* <MenuItem section="language">Languages</MenuItem> */}
@@ -272,6 +277,7 @@ export default observer(() => {
             {selectedSection === 'search-engines' && <ManageSearchEngines />}
             {selectedSection === 'startup' && <OnStartup />}
             {selectedSection === 'privacy' && <Privacy />}
+            {selectedSection === 'about' && <About />}
             {selectedSection === 'downloads' && <Downloads />}
           </LeftContent>
         </Content>

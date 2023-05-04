@@ -1,12 +1,14 @@
 {
   "name": "promethium",
-  "version": "6.0.1",
+  "version": "6.0.2",
   "sideEffects": false,
   "description": "Extensible, fast, and innovative Electron based web browser with Material UI design elements.",
   "keywords": [
     "web-browser",
     "material",
+    "material-ui",
     "electron",
+    "chromium",
     "react",
     "mobx",
     "styled-components"
@@ -68,7 +70,7 @@
     "concurrently": "^6.2.0",
     "copy-webpack-plugin": "^9.0.1",
     "cross-env": "7.0.3",
-    "electron": "13.6.9",
+    "electron": "git+https://github.com/castlabs/electron-releases.git#b54f564",
     "electron-builder": "22.14.13",
     "electron-extensions": "^7.0.0-beta.3",
     "electron-updater": "4.3.9",

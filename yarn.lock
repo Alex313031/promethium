@@ -2843,10 +2843,9 @@ electron-updater@4.3.9:
     lodash.isequal "^4.5.0"
     semver "^7.3.5"
 
-electron@13.6.9:
-  version "13.6.9"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-13.6.9.tgz#7bd83cc1662ceaaa09dcd132a7b507cec888b028"
-  integrity sha512-Es/sBy85NIuqsO9MW41PUCpwIkeinlTQ7g0ainfnmRAM2rmog3GBxVCaoV5dzEjwTF7TKG1Yr/E7Z3qHmlfWAg==
+"electron@git+https://github.com/castlabs/electron-releases.git#b54f564":
+  version "13.6.9-wvvmp"
+  resolved "git+https://github.com/castlabs/electron-releases.git#b54f56462c41ad4f5cdc772247e9843d18b86974"
   dependencies:
     "@electron/get" "^1.0.1"
     "@types/node" "^14.6.2"
