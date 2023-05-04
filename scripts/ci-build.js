@@ -37,10 +37,10 @@ const getInput = (name) => {
       );
       const newPkg = {
         ...package,
-        name: 'wexond-nightly',
+        name: 'promethium-nightly',
         repository: {
           type: 'git',
-          url: 'git+https://github.com/wexond/desktop-nightly.git',
+          url: 'git+https://github.com/Alex313031/promethium-nightly.git',
         },
       };
       await promises.writeFile(
@@ -50,8 +50,8 @@ const getInput = (name) => {
 
       const newEBConfig = {
         ...electronBuilder,
-        appId: 'org.wexond.wexond-nightly',
-        productName: 'Wexond Nightly',
+        appId: 'com.alex313031.promethium-nightly',
+        productName: 'Promethium Nightly',
         directories: {
           output: 'dist',
           buildResources: 'static/nightly-icons',

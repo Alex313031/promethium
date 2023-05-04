@@ -1,52 +1,59 @@
 {
-  "appId": "org.wexond.wexond",
-  "productName": "Wexond",
-  "nsis": {
-    "include": "static/installer.nsh"
-  },
-  "electronVersion": "13.1.4",
-  "generateUpdatesFilesForAllChannels": true,
+  "electronVersion": "13.6.9",
   "asar": true,
+  "productName": "Promethium",
+  "generateUpdatesFilesForAllChannels": false,
+  "appId": "com.alex313031.promethium",
   "directories": {
-    "output": "dist",
-    "buildResources": "static/icons"
+      "app": ".",
+      "buildResources": "static/icons",
+      "output": "dist"
   },
   "files": ["build/**/*", "package.json", "static/**/*"],
-  "publish": "github",
   "linux": {
-    "category": "Network",
     "target": [
-      {
-        "target": "AppImage",
-        "arch": ["x64"]
-      },
-      {
-        "target": "deb",
-        "arch": ["x64"]
-      }
-    ]
+      "zip",
+      "AppImage",
+      "deb"
+    ],
+    "maintainer": "Alex313031",
+    "vendor": "Alex313031",
+    "synopsis": "Extensible, fast, and innovative Electron based web browser with Material UI design elements.",
+    "category": "Network;Browser;",
+    "executableName": "promethium",
+    "artifactName": "${productName}_${version}_${arch}.${ext}",
+    "desktop": {
+      "Name": "Promethium",
+      "StartupWMClass": "promethium",
+      "Keywords": "electron;webview;browser;wexond;",
+      "Icon": "promethium"
+    }
   },
   "win": {
     "target": [
-      {
-        "target": "nsis-web",
-        "arch": ["x64", "ia32"]
-      },
-      {
-        "target": "zip",
-        "arch": ["x64", "ia32"]
-      }
-    ]
+      "zip",
+      "nsis"
+    ],
+    "publisherName": "Alex313031",
+    "executableName": "Promethium",
+    "artifactName": "Promethium_${version}_${arch}.${ext}"
+  },
+  "nsis": {
+    "include": "static/installer.nsh",
+    "shortcutName": "Promethium",
+    "artifactName": "Promethium_Setup_${version}_${arch}.${ext}",
+    "deleteAppDataOnUninstall": false,
+    "uninstallDisplayName": "Promethium ${version}"
   },
   "mac": {
     "category": "public.app-category.navigation"
   },
   "fileAssociations": [
     {
-      "name": "Document",
-      "description": "Wexond",
-      "role": "Viewer",
-      "ext": "html"
+    "name": "Document",
+    "description": "Promethium",
+    "role": "Viewer",
+    "ext": "html"
     }
   ]
 }

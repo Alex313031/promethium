@@ -109,7 +109,7 @@ class StartupControl extends React.PureComponent<Props, State> {
         </Row>
         <Row style={rowStyle} onClick={this.select('urls')}>
           <RadioButton selected={this.state.value === 'urls'} />
-          <Title style={titleStyle}>Open specific pages</Title>
+          <Title style={titleStyle}>Open specific page(s)</Title>
         </Row>
         {this.state.value === 'urls' && (
           <div style={{ marginLeft: 36 }}>

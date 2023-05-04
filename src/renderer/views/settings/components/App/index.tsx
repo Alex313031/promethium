@@ -231,7 +231,7 @@ export default observer(() => {
           </DialogButtons>
           <div style={{ clear: 'both' }}></div>
         </Dialog>
-        <NavigationDrawer title="Settings" search>
+        <NavigationDrawer title="Promethium Settings" search>
           <MenuItem icon={ICON_PALETTE} section="appearance">
             Appearance
           </MenuItem>

@@ -1,8 +1,8 @@
 {
-  "name": "wexond",
-  "version": "6.0.0-nightly.2",
+  "name": "promethium",
+  "version": "6.0.1",
   "sideEffects": false,
-  "description": "Extensible, fast and innovative web browser with material UI.",
+  "description": "Extensible, fast, and innovative Electron based web browser with Material UI design elements.",
   "keywords": [
     "web-browser",
     "material",
@@ -11,15 +11,16 @@
     "mobx",
     "styled-components"
   ],
-  "homepage": "https://github.com/wexond/wexond#readme",
+  "homepage": "https://github.com/Alex313031/promethium#readme",
   "main": "build/main.bundle.js",
-  "author": "Eryk Rakowski <sentialx@gmail.com>",
+  "author": "Alex313031 <alex313031@gmail.com>",
+  "license": "GPL-3.0+",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wexond/wexond.git"
+    "url": "git+https://github.com/Alex313031/promethium.git"
   },
   "bugs": {
-    "url": "https://github.com/wexond/wexond/issues"
+    "url": "https://github.com/Alex313031/promethium/issues"
   },
   "scripts": {
     "dev-renderer": "cross-env DEV=1 webpack serve --config webpack.config.renderer.js",
@@ -28,11 +29,15 @@
     "dev": "cross-env START=1 npm run watch",
     "build": "rimraf build && concurrently \"npm run build-renderer\" \"webpack\"",
     "ci-build": "node scripts/ci-build.js",
-    "start": "electron .",
+    "start": "npm run build && electron .",
+    "e": "electron .",
+    "clean": "rimraf build && rimraf node_modules",
+    "distclean": "rimraf build && rimraf dist",
     "watch": "concurrently \"npm run dev-renderer\" \"npm run dev-webpack\"",
     "compile-win32": "npm run build && electron-builder -w",
     "compile-darwin": "npm run build && electron-builder -m",
     "compile-linux": "npm run build && electron-builder -l",
+    "dist": "electron-builder --dir",
     "lint": "eslint \"src/**/*.ts*\" \"src/**/*.tsx*\"",
     "lint-fix": "npm run lint -- --fix",
     "rebuild": "electron-builder install-app-deps"
@@ -63,8 +68,8 @@
     "concurrently": "^6.2.0",
     "copy-webpack-plugin": "^9.0.1",
     "cross-env": "7.0.3",
-    "electron": "13.1.4",
-    "electron-builder": "22.11.7",
+    "electron": "13.6.9",
+    "electron-builder": "22.14.13",
     "electron-extensions": "^7.0.0-beta.3",
     "electron-updater": "4.3.9",
     "eslint": "^7.29.0",
@@ -103,5 +108,7 @@
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.8.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "electron-to-chromium": "1.4.161"
+  }
 }

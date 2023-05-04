@@ -1,35 +1,35 @@
 !macro customInstall
-  WriteRegStr SHCTX "SOFTWARE\RegisteredApplications" "Wexond" "Software\Clients\StartMenuInternet\Wexond\Capabilities"
+  WriteRegStr SHCTX "SOFTWARE\RegisteredApplications" "Promethium" "Software\Clients\StartMenuInternet\Promethium\Capabilities"
 
-  WriteRegStr SHCTX "SOFTWARE\Classes\Wexond" "" "Wexond HTML Document"
-  WriteRegStr SHCTX "SOFTWARE\Classes\Wexond\Application" "AppUserModelId" "Wexond"
-  WriteRegStr SHCTX "SOFTWARE\Classes\Wexond\Application" "ApplicationIcon" "$INSTDIR\Wexond.exe,0"
-  WriteRegStr SHCTX "SOFTWARE\Classes\Wexond\Application" "ApplicationName" "Wexond"
-  WriteRegStr SHCTX "SOFTWARE\Classes\Wexond\Application" "ApplicationCompany" "Wexond"      
-  WriteRegStr SHCTX "SOFTWARE\Classes\Wexond\Application" "ApplicationDescription" "A privacy-focused, extensible and beautiful web browser"      
-  WriteRegStr SHCTX "SOFTWARE\Classes\Wexond\DefaultIcon" "DefaultIcon" "$INSTDIR\Wexond.exe,0"
-  WriteRegStr SHCTX "SOFTWARE\Classes\Wexond\shell\open\command" "" '"$INSTDIR\Wexond.exe" "%1"'
+  WriteRegStr SHCTX "SOFTWARE\Classes\Promethium" "" "Promethium HTML Document"
+  WriteRegStr SHCTX "SOFTWARE\Classes\Promethium\Application" "AppUserModelId" "Promethium"
+  WriteRegStr SHCTX "SOFTWARE\Classes\Promethium\Application" "ApplicationIcon" "$INSTDIR\Promethium.exe,0"
+  WriteRegStr SHCTX "SOFTWARE\Classes\Promethium\Application" "ApplicationName" "Promethium"
+  WriteRegStr SHCTX "SOFTWARE\Classes\Promethium\Application" "ApplicationCompany" "Promethium"      
+  WriteRegStr SHCTX "SOFTWARE\Classes\Promethium\Application" "ApplicationDescription" "A privacy-focused, extensible and beautiful web browser"      
+  WriteRegStr SHCTX "SOFTWARE\Classes\Promethium\DefaultIcon" "DefaultIcon" "$INSTDIR\Promethium.exe,0"
+  WriteRegStr SHCTX "SOFTWARE\Classes\Promethium\shell\open\command" "" '"$INSTDIR\Promethium.exe" "%1"'
 
-  WriteRegStr SHCTX "SOFTWARE\Classes\.htm\OpenWithProgIds" "Wexond" ""
-  WriteRegStr SHCTX "SOFTWARE\Classes\.html\OpenWithProgIds" "Wexond" ""
+  WriteRegStr SHCTX "SOFTWARE\Classes\.htm\OpenWithProgIds" "Promethium" ""
+  WriteRegStr SHCTX "SOFTWARE\Classes\.html\OpenWithProgIds" "Promethium" ""
 
-  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Wexond" "" "Wexond"
-  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Wexond\DefaultIcon" "" "$INSTDIR\Wexond.exe,0"
-  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Wexond\Capabilities" "ApplicationDescription" "A privacy-focused, extensible and beautiful web browser"
-  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Wexond\Capabilities" "ApplicationName" "Wexond"
-  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Wexond\Capabilities" "ApplicationIcon" "$INSTDIR\Wexond.exe,0"
-  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Wexond\Capabilities\FileAssociations" ".htm" "Wexond"
-  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Wexond\Capabilities\FileAssociations" ".html" "Wexond"
-  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Wexond\Capabilities\URLAssociations" "http" "Wexond"
-  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Wexond\Capabilities\URLAssociations" "https" "Wexond"
-  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Wexond\Capabilities\StartMenu" "StartMenuInternet" "Wexond"
+  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Promethium" "" "Promethium"
+  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Promethium\DefaultIcon" "" "$INSTDIR\Promethium.exe,0"
+  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Promethium\Capabilities" "ApplicationDescription" "A privacy-focused, extensible and beautiful web browser"
+  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Promethium\Capabilities" "ApplicationName" "Promethium"
+  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Promethium\Capabilities" "ApplicationIcon" "$INSTDIR\Promethium.exe,0"
+  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Promethium\Capabilities\FileAssociations" ".htm" "Promethium"
+  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Promethium\Capabilities\FileAssociations" ".html" "Promethium"
+  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Promethium\Capabilities\URLAssociations" "http" "Promethium"
+  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Promethium\Capabilities\URLAssociations" "https" "Promethium"
+  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Promethium\Capabilities\StartMenu" "StartMenuInternet" "Promethium"
   
-  WriteRegDWORD SHCTX "SOFTWARE\Clients\StartMenuInternet\Wexond\InstallInfo" "IconsVisible" 1
+  WriteRegDWORD SHCTX "SOFTWARE\Clients\StartMenuInternet\Promethium\InstallInfo" "IconsVisible" 1
   
-  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Wexond\shell\open\command" "" "$INSTDIR\Wexond.exe"
+  WriteRegStr SHCTX "SOFTWARE\Clients\StartMenuInternet\Promethium\shell\open\command" "" "$INSTDIR\Promethium.exe"
 !macroend
 !macro customUnInstall
-  DeleteRegKey SHCTX "SOFTWARE\Classes\Wexond"
-  DeleteRegKey SHCTX "SOFTWARE\Clients\StartMenuInternet\Wexond"
-  DeleteRegValue SHCTX "SOFTWARE\RegisteredApplications" "Wexond"
+  DeleteRegKey SHCTX "SOFTWARE\Classes\Promethium"
+  DeleteRegKey SHCTX "SOFTWARE\Clients\StartMenuInternet\Promethium"
+  DeleteRegValue SHCTX "SOFTWARE\RegisteredApplications" "Promethium"
 !macroend

@@ -11,18 +11,39 @@ if (process.env.NODE_ENV === 'development') {
 import { platform } from 'os';
 import { Application } from './application';
 
-export const isNightly = app.name === 'wexond-nightly';
+export const isNightly = app.name === 'promethium-nightly';
 
 app.allowRendererProcessReuse = true;
-app.name = isNightly ? 'Wexond Nightly' : 'Wexond';
+app.name = isNightly ? 'Promethium Nightly' : 'Promethium';
 
 (process.env as any)['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
 
 app.commandLine.appendSwitch('--enable-transparent-visuals');
+// Enable useful features
 app.commandLine.appendSwitch(
   'enable-features',
   'CSSColorSchemeUARendering, ImpulseScrollAnimations, ParallelDownloading',
 );
+
+// Enable experimental web features
+app.commandLine.appendSwitch('enable-experimental-web-platform-features');
+// Including new Canvas2D APIs
+app.commandLine.appendSwitch('new-canvas-2d-api');
+// These two allow easier local web development
+// Allow file:// URIs to read other file:// URIs
+app.commandLine.appendSwitch('allow-file-access-from-files');
+// Enable local DOM to access all resources in a tree
+app.commandLine.appendSwitch('enable-local-file-accesses');
+// Enable QUIC for faster handshakes
+app.commandLine.appendSwitch('enable-quic');
+// Enable inspecting ALL layers
+app.commandLine.appendSwitch('enable-ui-devtools');
+// Force enable GPU acceleration
+app.commandLine.appendSwitch('ignore-gpu-blocklist');
+// Force enable GPU rasterization
+app.commandLine.appendSwitch('enable-gpu-rasterization');
+// Enable OOP Rasterization for Canvas layers
+app.commandLine.appendSwitch('enable-features', 'CanvasOopRasterization');
 
 if (process.env.NODE_ENV === 'development') {
   app.commandLine.appendSwitch('remote-debugging-port', '9222');

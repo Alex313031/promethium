@@ -3,6 +3,7 @@ node_modules
 *.log*
 build
 dist
+/electron/
 .DS_Store
 .fusebox
 filters

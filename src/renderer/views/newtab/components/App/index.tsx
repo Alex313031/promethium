@@ -63,7 +63,7 @@ export default observer(() => {
             <Menu>
               <IconItem
                 imageSet={store.imageVisible}
-                title="Settings"
+                title="Promethium Settings"
                 icon={ICON_SETTINGS}
                 onClick={onIconClick('settings')}
               ></IconItem>

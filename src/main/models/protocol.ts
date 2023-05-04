@@ -5,7 +5,7 @@ import { ERROR_PROTOCOL, WEBUI_PROTOCOL } from '~/constants/files';
 
 protocol.registerSchemesAsPrivileged([
   {
-    scheme: 'wexond',
+    scheme: 'promethium',
     privileges: {
       bypassCSP: true,
       secure: true,

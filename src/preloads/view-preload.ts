@@ -161,7 +161,7 @@ if (
 
 if (window.location.href.startsWith(WEBUI_BASE_URL)) {
   window.addEventListener('DOMContentLoaded', () => {
-    if (hostname.startsWith('settings')) document.title = 'Settings';
+    if (hostname.startsWith('settings')) document.title = 'Promethium Settings';
     else if (hostname.startsWith('history')) document.title = 'History';
     else if (hostname.startsWith('bookmarks')) document.title = 'Bookmarks';
     else if (hostname.startsWith('extensions')) document.title = 'Extensions';

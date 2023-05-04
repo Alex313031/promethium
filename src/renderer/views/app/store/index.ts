@@ -128,7 +128,7 @@ export class Store {
 
     const url = this.addressbarValue;
 
-    const whitelistedProtocols = ['https', 'http', 'ftp', 'wexond'];
+    const whitelistedProtocols = ['https', 'http', 'ftp', 'promethium', 'file'];
 
     for (let i = 0; i < url.length; i++) {
       const protocol = whitelistedProtocols.find(
