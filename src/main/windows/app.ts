@@ -20,8 +20,8 @@ export class AppWindow {
       frame: false,
       minWidth: 400,
       minHeight: 450,
-      width: 900,
-      height: 700,
+      width: 1024,
+      height: 820,
       titleBarStyle: 'hiddenInset',
       backgroundColor: '#ffffff',
       webPreferences: {
@@ -32,11 +32,11 @@ export class AppWindow {
         javascript: true,
         // TODO: get rid of the remote module in renderers
         enableRemoteModule: true,
-        worldSafeExecuteJavaScript: false,
+        worldSafeExecuteJavaScript: false
       },
       icon: resolve(
         app.getAppPath(),
-        `static/${isNightly ? 'nightly-icons' : 'icons'}/icon.png`,
+        `static/${isNightly ? 'nightly-icons' : 'icons'}/icon.png`
       ),
       show: false,
     });

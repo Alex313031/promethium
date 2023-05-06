@@ -40,7 +40,7 @@
     ],
     "publisherName": "Alex313031",
     "executableName": "Promethium",
-    "artifactName": "Promethium_${version}_${arch}.${ext}"
+    "artifactName": "Promethium_win64_${version}_${arch}.${ext}"
   },
   "nsis": {
     "include": "static/installer.nsh",

@@ -62,6 +62,7 @@ export class View {
         nodeIntegration: false,
         contextIsolation: true,
         sandbox: true,
+        experimentalFeatures: true,
         enableRemoteModule: false,
         devTools: true,
         partition: incognito ? 'view_incognito' : 'persist:view',
@@ -69,7 +70,8 @@ export class View {
         nativeWindowOpen: true,
         webSecurity: true,
         javascript: true,
-        worldSafeExecuteJavaScript: false,
+        webviewTag: true,
+        worldSafeExecuteJavaScript: false
       },
     });
 
