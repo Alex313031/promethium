@@ -17,11 +17,12 @@ const appConfig = getConfig(getBaseConfig('app'), {
   target: 'web',
 
   devServer: {
-    contentBase: join(__dirname, 'build'),
+	static: {
+      directory: join(__dirname, 'build'),
+    },
     port: PORT,
     hot: true,
-    inline: true,
-    disableHostCheck: true,
+    allowedHosts: "all"
   },
 
   plugins: dev

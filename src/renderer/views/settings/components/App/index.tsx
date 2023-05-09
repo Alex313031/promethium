@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { observer } from 'mobx-react-lite';
 
+import { ipcRenderer } from 'electron';
 import { SettingsSection } from '../../store';
 import { Appearance } from '../Appearance';
 import { AddressBar, ManageSearchEngines } from '../AddressBar';

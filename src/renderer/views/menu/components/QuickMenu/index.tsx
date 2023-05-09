@@ -12,13 +12,15 @@ import {
   RightControl,
 } from './style';
 import store from '../../store';
-import { ipcRenderer, remote } from 'electron';
+import { ipcRenderer } from 'electron';
+import * as remote from '@electron/remote';
 import { WEBUI_BASE_URL, WEBUI_URL_SUFFIX } from '~/constants/files';
 import { Switch } from '~/renderer/components/Switch';
 import {
   ICON_FIRE,
   ICON_TOPMOST,
   ICON_TAB,
+  ICON_ABOUT,
   ICON_WINDOW,
   ICON_INCOGNITO,
   ICON_HISTORY,
@@ -168,6 +170,11 @@ export const QuickMenu = observer(() => {
             <Icon icon={ICON_PRINT} />
             <MenuItemTitle>Print</MenuItemTitle>
             <Shortcut>Ctrl+P</Shortcut>
+          </MenuItem>
+          <Line />
+          <MenuItem onClick={goToWebUIPage('settings/#about')}>
+            <Icon icon={ICON_ABOUT} />
+            <MenuItemTitle>About App</MenuItemTitle>
           </MenuItem>
         </MenuItems>
       </Content>

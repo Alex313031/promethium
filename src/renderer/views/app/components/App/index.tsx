@@ -32,7 +32,7 @@ const onAppLeave = () => {
 };
 
 const onAppEnter = () => {
-  clearTimeout(store.barHideTimer);
+  if (typeof store.barHideTimer !== 'number') clearTimeout(store.barHideTimer);
 };
 
 const onLineEnter = () => {

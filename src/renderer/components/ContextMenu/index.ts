@@ -92,6 +92,9 @@ export const ContextMenuItem = styled.div`
         : 'rgba(0, 0, 0, 0.1)'
       : 'none'};
 
+    svg {
+      margin-right: 8px;
+    }
     &:hover {
       background-color: ${theme['control.lightIcon']
         ? `rgba(255, 255, 255, ${selected ? 0.15 : 0.08})`

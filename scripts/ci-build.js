@@ -65,7 +65,7 @@ const getInput = (name) => {
     }
 
     const release =
-      (getEnv('release') === 'true' || getEnv('release') === true) &&
+      (getEnv('RELEASE') === 'true' || getEnv('RELEASE') === true) &&
       getEnv('GH_TOKEN');
     const platform = getPlatform();
 
@@ -75,6 +75,12 @@ const getInput = (name) => {
     } else if (platform === 'windows') {
       setEnv('CSC_LINK', getEnv('windows_certs'));
       setEnv('CSC_KEY_PASSWORD', getEnv('windows_certs_password'));
+    } else if (platform === 'linux') {
+      await promises.writeFile(
+        '/tmp/snapcraft-token',
+        getEnv('SNAPCRAFT_TOKEN'),
+      );
+      run('snapcraft login --with /tmp/snapcraft-token');
     }
 
     run('yarn run build');

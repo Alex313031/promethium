@@ -12,10 +12,11 @@ import {
   StyledPinAction,
   TabContainer,
 } from './style';
-import { ICON_VOLUME_HIGH, ICON_VOLUME_OFF } from '~/renderer/constants';
+import { ICON_CLOSE, ICON_VOLUME_HIGH, ICON_VOLUME_OFF } from '~/renderer/constants';
 import { ITab, ITabGroup } from '../../models';
 import store from '../../store';
-import { remote, ipcRenderer, nativeImage, Menu } from 'electron';
+import { ipcRenderer, nativeImage, Menu } from 'electron';
+import * as remote from '@electron/remote';
 import { COMPACT_TAB_MARGIN_TOP } from '~/constants/design';
 
 const removeTab = (tab: ITab) => (e: React.MouseEvent<HTMLDivElement>) => {
@@ -346,6 +347,7 @@ const Close = observer(({ tab }: { tab: ITab }) => {
       onMouseDown={onCloseMouseDown}
       onClick={removeTab(tab)}
       visible={tab.isExpanded && !tab.isPinned}
+      icon={ICON_CLOSE}
     />
   );
 });

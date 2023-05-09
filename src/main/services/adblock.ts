@@ -61,11 +61,6 @@ const emitBlockedEvent = (request: Request) => {
 let adblockRunning = false;
 let adblockInitialized = false;
 
-interface IAdblockInfo {
-  headersReceivedId?: number;
-  beforeRequestId?: number;
-}
-
 const sessionAdblockInfoMap: Map<Electron.Session, IAdblockInfo> = new Map();
 
 export const runAdblockService = async (ses: any) => {

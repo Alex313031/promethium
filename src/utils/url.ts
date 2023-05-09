@@ -4,7 +4,7 @@ export const isURL = (input: string): boolean => {
   if (pattern.test(input)) {
     return true;
   }
-  return pattern.test(`http://${input}`);
+  return pattern.test(`https://${input}`);
 };
 
 export const matchesPattern = (pattern: string, url: string) => {
@@ -40,5 +40,5 @@ export const getDomain = (url: string): string => {
 
 export const prefixHttp = (url: string): string => {
   url = url.trim();
-  return url.includes('://') ? url : `http://${url}`;
+  return url.includes('://') ? url : `https://${url}`;
 };

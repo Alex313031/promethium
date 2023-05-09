@@ -11,6 +11,7 @@ export const StyledToolbar = styled.div`
   flex-flow: row;
   color: rgba(0, 0, 0, 0.8);
   width: 100%;
+  -webkit-app-region: drag;
   height: ${TOOLBAR_HEIGHT}px;
 
   ${({ theme }: { theme: ITheme }) => css`

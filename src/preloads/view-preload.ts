@@ -1,10 +1,9 @@
-import { ipcRenderer, webFrame } from 'electron';
+import { app, contextBridge, ipcRenderer, webFrame } from 'electron';
 
 import AutoComplete from './models/auto-complete';
 import { getTheme } from '~/utils/themes';
 import { ERROR_PROTOCOL, WEBUI_BASE_URL } from '~/constants/files';
 import { injectChromeWebstoreInstallButton } from './chrome-webstore';
-
 const tabId = ipcRenderer.sendSync('get-webcontents-id');
 
 export const windowId: number = ipcRenderer.sendSync('get-window-id');
@@ -125,36 +124,46 @@ if (
   window.location.protocol === `${ERROR_PROTOCOL}:`
 ) {
   (async function () {
-    const w = await webFrame.executeJavaScript('window');
-    w.settings = settings;
-    w.require = (id: string) => {
+    contextBridge.exposeInMainWorld('process', process);
+    contextBridge.exposeInMainWorld('settings', settings);
+    contextBridge.exposeInMainWorld('require', (id: string) => {
+      console.log(id);
       if (id === 'electron') {
-        return { ipcRenderer };
+        return { ipcRenderer, app };
       }
       return undefined;
-    };
-
+    });
     if (window.location.pathname.startsWith('//network-error')) {
-      w.theme = getTheme(w.settings.theme);
-      w.errorURL = await ipcRenderer.invoke(`get-error-url-${tabId}`);
+      contextBridge.exposeInMainWorld('theme', getTheme(settings.theme));
+      contextBridge.exposeInMainWorld(
+        'errorURL',
+        await ipcRenderer.invoke(`get-error-url-${tabId}`),
+      );
     } else if (hostname.startsWith('history')) {
-      w.getHistory = async () => {
+      contextBridge.exposeInMainWorld('getHistory', async () => {
         return await ipcRenderer.invoke(`history-get`);
-      };
-      w.removeHistory = (ids: string[]) => {
+      });
+      contextBridge.exposeInMainWorld('removeHistory', (ids: string[]) => {
         ipcRenderer.send(`history-remove`, ids);
-      };
+      });
     } else if (hostname.startsWith('newtab')) {
-      w.getTopSites = async (count: number) => {
+      contextBridge.exposeInMainWorld('getTopSites', async (count: number) => {
         return await ipcRenderer.invoke(`topsites-get`, count);
-      };
+      });
     }
   })();
 } else {
   (async function () {
     if (settings.doNotTrack) {
-      const w = await webFrame.executeJavaScript('window');
-      Object.defineProperty(w.navigator, 'doNotTrack', { value: 1 });
+      await webFrame.executeJavaScript(
+        `window.navigator.doNotTrack = { value: 1 }`,
+      );
+    }
+
+    if (settings.globalPrivacyControl) {
+      await webFrame.executeJavaScript(
+        `window.navigator.globalPrivacyControl = true`,
+      );
     }
   })();
 }
@@ -189,12 +198,12 @@ if (window.location.href.startsWith(WEBUI_BASE_URL)) {
     }
   });
 
-  ipcRenderer.on('update-settings', async (e, data) => {
-    const w = await webFrame.executeJavaScript('window');
-    if (w.updateSettings) {
-      w.updateSettings(data);
-    }
-  });
+  // TODO: Is this needed anymore?
+  // ipcRenderer.on('update-settings', async (e, data) => {
+    // await webFrame.executeJavaScript(
+      // `window.updateSettings(${JSON.stringify(data)})`,
+    // );
+  // });
 
   ipcRenderer.on('credentials-insert', (e, data) => {
     window.postMessage(

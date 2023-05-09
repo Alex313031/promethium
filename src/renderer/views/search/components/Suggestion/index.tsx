@@ -33,7 +33,7 @@ const onClick = (suggestion: ISuggestion) => () => {
   if (suggestion.isSearch) {
     url = store.searchEngine.url.replace('%s', url);
   } else if (url.indexOf('://') === -1) {
-    url = `http://${url}`;
+    url = `https://${url}`;
   }
 
   callViewMethod(store.tabId, 'loadURL', url);

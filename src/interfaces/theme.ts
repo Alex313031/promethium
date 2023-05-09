@@ -11,7 +11,8 @@ export interface ITheme {
 
   'tab.textColor': string;
   'tab.selected.textColor': string;
-
+  'tab.selected.backgroundColor': string;
+  'tab.backgroundColor': string;
   'control.backgroundColor': string;
   'control.hover.backgroundColor': string;
   'control.valueColor': string;

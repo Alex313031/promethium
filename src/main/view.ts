@@ -1,5 +1,5 @@
 import { BrowserView, app, ipcMain } from 'electron';
-import { parse as parseUrl } from 'url';
+import { URL } from 'url';
 import { getViewMenu } from './menus/view';
 import { AppWindow } from './windows';
 import { IHistoryItem, IBookmark } from '~/interfaces';
@@ -18,6 +18,8 @@ import { TabEvent } from '~/interfaces/tabs';
 import { Queue } from '~/utils/queue';
 import { Application } from './application';
 import { getUserAgentForURL } from './user-agent';
+
+import log from 'electron-log';
 
 interface IAuthInfo {
   url: string;
@@ -63,17 +65,17 @@ export class View {
         contextIsolation: true,
         sandbox: true,
         experimentalFeatures: true,
-        enableRemoteModule: false,
         devTools: true,
         partition: incognito ? 'view_incognito' : 'persist:view',
         plugins: true,
         nativeWindowOpen: true,
         webSecurity: true,
+        // @ts-ignore
+        transparent: true,
         javascript: true,
-        webviewTag: true,
-        worldSafeExecuteJavaScript: false
       },
     });
+    require('@electron/remote/main').enable(this.browserView.webContents);
 
     this.incognito = incognito;
 
@@ -91,6 +93,8 @@ export class View {
       (details, callback) => {
         const { object: settings } = Application.instance.settings;
         if (settings.doNotTrack) details.requestHeaders['DNT'] = '1';
+        if (settings.globalPrivacyControl)
+          details.requestHeaders['Sec-GPC'] = '1';
         callback({ requestHeaders: details.requestHeaders });
       },
     );
@@ -162,6 +166,7 @@ export class View {
     this.webContents.on(
       'did-start-navigation',
       (e, url, isInPlace, isMainFrame) => {
+        log.info('Start_Navigation:', url);
         if (!isMainFrame) return;
         const newUA = getUserAgentForURL(this.webContents.userAgent, url);
         if (this.webContents.userAgent !== newUA) {
@@ -200,6 +205,7 @@ export class View {
     this.webContents.addListener(
       'did-fail-load',
       (e, errorCode, errorDescription, validatedURL, isMainFrame) => {
+        console.error(errorCode, errorDescription, validatedURL, isMainFrame);
         // ignore -3 (ABORTED) - An operation was aborted (due to user action).
         if (isMainFrame && errorCode !== -3) {
           this.errorURL = validatedURL;
@@ -263,7 +269,7 @@ export class View {
         certificate: Electron.Certificate,
         callback: Function,
       ) => {
-        console.log(certificate, error, url);
+        log.warn('WARNING', certificate, error, url);
         // TODO: properly handle insecure websites.
         event.preventDefault();
         callback(true);
@@ -377,6 +383,8 @@ export class View {
   }
 
   public updateURL = (url: string) => {
+    log.info('Last_URL:', this.lastUrl);
+    log.info('New_URL:', url);
     if (this.lastUrl === url) return;
 
     this.emitEvent('url-updated', this.hasError ? this.errorURL : url);
@@ -441,7 +449,7 @@ export class View {
   }
 
   public get hostname() {
-    return parseUrl(this.url).hostname;
+    return new URL(this.url).hostname;
   }
 
   public emitEvent(event: TabEvent, ...args: any[]) {

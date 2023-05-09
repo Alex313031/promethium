@@ -35,6 +35,7 @@ jobs:
         run: yarn ci-build
         env:
           GH_TOKEN: ${{ secrets.token }}
+          SNAPCRAFT_TOKEN: ${{ secrets.SNAPCRAFT_TOKEN }}
 
           MAC_CERTS: ${{ secrets.mac_certs }}
           MAC_CERTS_PASSWORD: ${{ secrets.mac_certs_password }}

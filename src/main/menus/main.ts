@@ -108,8 +108,8 @@ export const getMainMenu = () => {
         },
         ...createMenuItem(
           ['CmdOrCtrl+S'],
-          () => {
-            saveAs();
+          async () => {
+            await saveAs();
           },
           'Save webpage as...',
         ),
@@ -124,11 +124,13 @@ export const getMainMenu = () => {
           'Print',
         ),
 
+        ...(!isMac ? [{ role: 'quit' }] : [{}]),
+
         // Hidden items
 
         // Focus address bar
-        ...createMenuItem(['Ctrl+Space', 'CmdOrCtrl+L', 'Alt+D', 'F6'], () => {
-          Application.instance.dialogs
+        ...createMenuItem(['Ctrl+Space', 'CmdOrCtrl+L', 'Alt+D', 'F6'], async () => {
+          await Application.instance.dialogs
             .getPersistent('search')
             .show(Application.instance.windows.current.win);
         }),
@@ -249,9 +251,9 @@ export const getMainMenu = () => {
         ),
         ...createMenuItem(
           ['CmdOrCtrl+Shift+B'],
-          () => {
+          async () => {
             const { bookmarksBar } = Application.instance.settings.object;
-            Application.instance.settings.updateSettings({
+            await Application.instance.settings.updateSettings({
               bookmarksBar: !bookmarksBar,
             });
           },
@@ -273,38 +275,43 @@ export const getMainMenu = () => {
     {
       label: 'Tools',
       submenu: [
-        {
-          label: 'Developer',
-          submenu: [
-            ...createMenuItem(
-              ['CmdOrCtrl+U'],
-              () => {
-                viewSource();
-              },
-              'View source',
-            ),
-            ...createMenuItem(
-              ['CmdOrCtrl+Shift+I', 'CmdOrCtrl+Shift+J', 'F12'],
-              () => {
-                setTimeout(() => {
-                  Application.instance.windows.current.viewManager.selected.webContents.toggleDevTools();
-                });
-              },
-              'Developer tools...',
-            ),
-
-            // Developer tools (current webContents) (dev)
-            ...createMenuItem(['CmdOrCtrl+Shift+F12'], () => {
-              setTimeout(() => {
-                webContents
-                  .getFocusedWebContents()
-                  .openDevTools({ mode: 'detach' });
-              });
-            }),
-          ],
-        },
-      ],
-    },
+        ...createMenuItem(
+          ['CmdOrCtrl+U'],
+          async () => {
+            await viewSource();
+          },
+          'View source',
+        ),
+        ...createMenuItem(
+          ['CmdOrCtrl+Shift+I', 'CmdOrCtrl+Shift+J'],
+          () => {
+            setTimeout(() => {
+              Application.instance.windows.current.viewManager.selected.webContents.toggleDevTools();
+            });
+          },
+          'Developer Tools',
+         ),
+         // Developer tools (current webContents) (detach)
+         ...createMenuItem(['F12', 'CmdOrCtrl+Shift+F12'], () => {
+             setTimeout(() => {
+               webContents
+               .getFocusedWebContents()
+               .openDevTools({ mode: 'detach' });
+             });
+           },
+           'Developer Tools (Detached)',
+          ),
+          // Open Chromium GPU page to check hardware acceleration
+          ...createMenuItem(['CmdOrCtrl+Alt+G'], () => {
+               setTimeout(() => {
+                 const gpuWindow = new BrowserWindow({width: 1024, height: 768, title: "GPU Internals"});
+                 gpuWindow.loadURL('chrome://gpu');
+               });
+            },
+            'Open chrome://gpu',
+           ),
+        ],
+      },
     {
       label: 'Tab',
       submenu: [

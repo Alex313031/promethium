@@ -6,6 +6,8 @@ import { NavigationButtons } from '../NavigationButtons';
 
 import { AddressBar } from '../AddressBar';
 import { RightButtons } from '../RightButtons';
+import { ipcRenderer } from 'electron';
+import * as remote from '@electron/remote';
 
 export const Toolbar = observer(() => {
   return (

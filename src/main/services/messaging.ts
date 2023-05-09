@@ -1,5 +1,4 @@
 import { ipcMain } from 'electron';
-import { parse } from 'url';
 // import { getPassword, setPassword, deletePassword } from 'keytar';
 
 import { AppWindow } from '../windows';
@@ -8,7 +7,7 @@ import { showMenuDialog } from '../dialogs/menu';
 import { PreviewDialog } from '../dialogs/preview';
 import { IFormFillData, IBookmark } from '~/interfaces';
 import { SearchDialog } from '../dialogs/search';
-
+import { URL } from 'url';
 import * as bookmarkMenu from '../menus/bookmarks';
 import { showFindDialog } from '../dialogs/find';
 import { getFormFillMenuItems } from '../utils';
@@ -143,7 +142,7 @@ export const runMessagingService = (appWindow: AppWindow) => {
       `form-fill-update-${id}`,
       async (e, _id: string, persistent = false) => {
         const url = appWindow.viewManager.selected.url;
-        const { hostname } = parse(url);
+        const { hostname } = new URL(url);
 
         const item =
           _id &&

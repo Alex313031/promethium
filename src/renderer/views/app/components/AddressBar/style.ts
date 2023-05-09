@@ -13,6 +13,7 @@ export const StyledAddressBar = styled.div`
 
   font-size: 15px;
   overflow: hidden;
+  -webkit-app-region: no-drag;
 
   ${({ theme, focus }: { theme: ITheme; focus: boolean }) => css`
     background-color: ${theme['addressbar.backgroundColor']};

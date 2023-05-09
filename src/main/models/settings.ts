@@ -1,4 +1,4 @@
-import { ipcMain, nativeTheme, dialog } from 'electron';
+import { ipcMain, nativeTheme, dialog, app } from 'electron';
 
 import { DEFAULT_SETTINGS, DEFAULT_SEARCH_ENGINES } from '~/constants';
 

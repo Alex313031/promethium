@@ -1,4 +1,4 @@
-import { ipcMain, app, webContents } from 'electron';
+import { ipcMain, app, components, webContents } from 'electron';
 import { setIpcMain } from '@wexond/rpc-electron';
 setIpcMain(ipcMain);
 
@@ -18,15 +18,8 @@ app.name = isNightly ? 'Promethium Nightly' : 'Promethium';
 
 (process.env as any)['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
 
-app.commandLine.appendSwitch('--enable-transparent-visuals');
-// Enable useful features
-app.commandLine.appendSwitch(
-  'enable-features',
-  'CSSColorSchemeUARendering, ImpulseScrollAnimations, ParallelDownloading',
-);
-
 // Enable experimental web features
-app.commandLine.appendSwitch('enable-experimental-web-platform-features');
+//app.commandLine.appendSwitch('enable-experimental-web-platform-features');
 // Including new Canvas2D APIs
 app.commandLine.appendSwitch('new-canvas-2d-api');
 // These two allow easier local web development
@@ -42,8 +35,15 @@ app.commandLine.appendSwitch('enable-ui-devtools');
 app.commandLine.appendSwitch('ignore-gpu-blocklist');
 // Force enable GPU rasterization
 app.commandLine.appendSwitch('enable-gpu-rasterization');
-// Enable OOP Rasterization for Canvas layers
-app.commandLine.appendSwitch('enable-features', 'CanvasOopRasterization');
+// Enable Zero Copy for GPU memory associated with Tiles
+app.commandLine.appendSwitch('enable-zero-copy');
+// Transparent overlays for Promethium UI
+app.commandLine.appendSwitch('enable-transparent-visuals');
+
+// Enable useful features
+app.commandLine.appendSwitch(
+  'enable-features','CanvasOopRasterization,CSSColorSchemeUARendering,ImpulseScrollAnimations,ParallelDownloading,JXL,VaapiVideoDecoder,VaapiVideoEncoder',
+);
 
 if (process.env.NODE_ENV === 'development') {
   app.commandLine.appendSwitch('remote-debugging-port', '9222');
@@ -78,15 +78,19 @@ ipcMain.on('get-window-id', (e) => {
 ipcMain.handle(
   `web-contents-call`,
   async (e, { webContentsId, method, args = [] }) => {
-    const wc = webContents.fromId(webContentsId);
-    const result = (wc as any)[method](...args);
+    try {
+      const wc = webContents.fromId(webContentsId);
+      const result = (wc as any)[method](...args);
 
-    if (result) {
-      if (result instanceof Promise) {
-        return await result;
+      if (result) {
+        if (result instanceof Promise) {
+          return await result;
+        }
+
+        return result;
       }
-
-      return result;
+    } catch (e) {
+      console.log(e);
     }
   },
 );

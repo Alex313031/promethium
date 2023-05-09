@@ -1,5 +1,5 @@
-import { app, ipcMain, Menu } from 'electron';
-import { isAbsolute, extname } from 'path';
+import { app, components, ipcMain, Menu } from 'electron';
+import { isAbsolute, extname, resolve } from 'path';
 import { existsSync } from 'fs';
 import { SessionsService } from './sessions-service';
 import { checkFiles } from '~/utils/files';
@@ -87,28 +87,32 @@ export class Application {
   }
 
   private async onReady() {
-    await app.whenReady();
+    await app.whenReady().then(async () => {
+      await components.whenReady();
+      console.log(' WidevineCDM component ready!\n Info:', components.status());
 
-    new ExtensionServiceHandler();
+      new ExtensionServiceHandler();
 
-    NetworkServiceHandler.get();
+      NetworkServiceHandler.get();
 
-    checkFiles();
+      checkFiles();
 
-    this.storage.run();
-    this.dialogs.run();
+      this.storage.run();
+      this.dialogs.run();
 
-    this.windows.open();
+      this.windows.open();
 
-    this.sessions = new SessionsService();
+      this.sessions = new SessionsService();
 
-    Menu.setApplicationMenu(getMainMenu());
-    runAutoUpdaterService();
+      Menu.setApplicationMenu(getMainMenu());
+      // TODO: Reenable
+      // runAutoUpdaterService();
 
-    app.on('activate', () => {
-      if (this.windows.list.filter((x) => x !== null).length === 0) {
-        this.windows.open();
-      }
+      app.on('activate', () => {
+        if (this.windows.list.filter((x) => x !== null).length === 0) {
+          this.windows.open();
+        }
+      });
     });
   }
 }

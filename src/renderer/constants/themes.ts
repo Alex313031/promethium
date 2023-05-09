@@ -10,6 +10,8 @@ export const lightTheme: ITheme = {
   'toolbar.lightForeground': false,
   'toolbar.separator.color': 'rgba(0, 0, 0, 0.12)',
   'tab.selected.textColor': '#000',
+  'tab.selected.backgroundColor': '#E5F1FF',
+  'tab.backgroundColor': '#F2F8FF',
   'tab.textColor': `rgba(0, 0, 0, 0.7)`,
   'control.backgroundColor': 'rgba(0, 0, 0, 0.08)',
   'control.hover.backgroundColor': 'rgba(0, 0, 0, 0.1)',
@@ -45,6 +47,10 @@ export const darkTheme: ITheme = {
   'toolbar.separator.color': 'rgba(255, 255, 255, 0.12)',
   'tab.selected.textColor': '#fff',
   'tab.textColor': 'rgba(255, 255, 255, 0.54)',
+
+  'tab.selected.backgroundColor': '#1A1E2C',
+  'tab.backgroundColor': '#11151A',
+
   'control.backgroundColor': 'rgba(255, 255, 255, 0.1)',
   'control.hover.backgroundColor': 'rgba(255, 255, 255, 0.12)',
   'control.valueColor': '#fff',

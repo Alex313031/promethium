@@ -1,5 +1,5 @@
 import { ISettings } from '~/interfaces';
-import { remote, app } from 'electron';
+import { app } from 'electron';
 
 export const DEFAULT_SEARCH_ENGINES = [
   {
@@ -93,11 +93,14 @@ export const DEFAULT_SETTINGS: ISettings = {
   warnOnQuit: false,
   version: 2,
   downloadsDialog: false,
-  downloadsPath: remote
-    ? remote.app.getPath('downloads')
+  downloadsPath: app
+    ? app.getPath('downloads')
+    : process.type !== 'browser' && process.type !== 'renderer'
+    ? require('@electron/remote').app.getPath('downloads')
     : app
     ? app.getPath('downloads')
     : '',
   doNotTrack: true,
-  topBarVariant: 'default',
+  globalPrivacyControl: true,
+  topBarVariant: 'default'
 };

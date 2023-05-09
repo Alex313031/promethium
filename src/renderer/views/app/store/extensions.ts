@@ -55,6 +55,12 @@ export class ExtensionsStore {
         ];
       }
 
+      if (!icon1) {
+        icon1 = Object.values(extension.manifest.icons)[
+          Object.keys(extension.manifest.icons).length - 1
+        ];
+      }
+
       const data = await promises.readFile(
         join(extension.path, icon1 as string),
       );

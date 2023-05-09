@@ -17,11 +17,12 @@ export class AppWindow {
 
   public constructor(incognito: boolean) {
     this.win = new BrowserWindow({
+      // TODO: Add setting for this in settings either through store or process.env variable
       frame: false,
-      minWidth: 400,
+      minWidth: 450,
       minHeight: 450,
       width: 1024,
-      height: 820,
+      height: 768,
       titleBarStyle: 'hiddenInset',
       backgroundColor: '#ffffff',
       webPreferences: {
@@ -29,18 +30,21 @@ export class AppWindow {
         // TODO: enable sandbox, contextIsolation and disable nodeIntegration to improve security
         nodeIntegration: true,
         contextIsolation: false,
+        experimentalFeatures: true,
+        devTools: true,
         javascript: true,
-        // TODO: get rid of the remote module in renderers
-        enableRemoteModule: true,
-        worldSafeExecuteJavaScript: false
+      },
+      trafficLightPosition: {
+        x: 18,
+        y: 18,
       },
       icon: resolve(
         app.getAppPath(),
-        `static/${isNightly ? 'nightly-icons' : 'icons'}/icon.png`
+        `static/${isNightly ? 'nightly-icons' : 'icons'}/icon.png`,
       ),
       show: false,
     });
-
+    require('@electron/remote/main').enable(this.win.webContents);
     this.incognito = incognito;
 
     this.viewManager = new ViewManager(this, incognito);
@@ -154,6 +158,8 @@ export class AppWindow {
       Application.instance.windows.list = Application.instance.windows.list.filter(
         (x) => x.win.id !== this.win.id,
       );
+
+      Application.instance.windows.current = undefined;
     });
 
     // this.webContents.openDevTools({ mode: 'detach' });

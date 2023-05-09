@@ -8,6 +8,7 @@ import { TopSites } from '../TopSites';
 import { News } from '../News';
 import { Preferences } from '../Preferences';
 import {
+  ICON_PAGE,
   ICON_TUNE,
   ICON_SETTINGS,
   ICON_HISTORY,

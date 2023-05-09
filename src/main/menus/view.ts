@@ -84,6 +84,26 @@ export const getViewMenu = (
     ]);
   }
 
+  if (params.mediaFlags.canShowPictureInPicture) {
+    menuItems = menuItems.concat([
+      {
+        type: 'checkbox',
+        label: 'Picture in Picture',
+        checked: params.mediaFlags.isShowingPictureInPicture,
+        click: () => {
+          webContents.executeJavaScript(
+            params.mediaFlags.isShowingPictureInPicture
+              ? `document.exitPictureInPicture()`
+              : `document.elementFromPoint(${params.x}, ${params.y}).requestPictureInPicture()`,
+          );
+        },
+      },
+      {
+        type: 'separator',
+      },
+    ]);
+  }
+
   if (params.isEditable) {
     menuItems = menuItems.concat([
       {

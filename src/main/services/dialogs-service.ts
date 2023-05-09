@@ -64,11 +64,12 @@ export class DialogsService {
       webPreferences: {
         nodeIntegration: true,
         contextIsolation: false,
-        enableRemoteModule: true,
+        // @ts-ignore
+        transparent: true,
         webviewTag: true,
-        worldSafeExecuteJavaScript: false,
       },
     });
+    require('@electron/remote/main').enable(view.webContents);
 
     view.webContents.loadURL(`about:blank`);
 
@@ -304,6 +305,7 @@ export class DialogsService {
   };
 
   public destroy = () => {
+    // TODO: For some reason reactivation of the app breaks when this is called, it seems like the issue is with our extentions engine
     this.getBrowserViews().forEach((x) => (x.webContents as any).destroy());
   };
 

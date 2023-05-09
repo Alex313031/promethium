@@ -19,8 +19,12 @@ import { promises } from 'fs';
 import { Application } from '../application';
 import { requestURL } from '../network/request';
 import * as parse from 'node-bookmarks-parser';
+import fetch from 'node-fetch';
+import { Settings } from '../models/settings';
 
 interface Databases {
+  // TODO: ts moment
+  // @ts-ignore
   [key: string]: Datastore;
 }
 
@@ -58,7 +62,7 @@ export class StorageService {
 
   public historyVisited: IVisitedItem[] = [];
 
-  public favicons: Map<string, string> = new Map();
+  public favicons: Map<any, any> = new Map();
 
   public constructor() {
     ipcMain.handle('storage-get', async (e, data: IFindOperation) => {
@@ -383,6 +387,8 @@ export class StorageService {
   }
 
   private createDatabase = (name: string) => {
+    // TODO: ts moment
+    // @ts-ignore
     return new Datastore({
       filename: getPath(`storage/${name}.db`),
       autoload: true,
@@ -390,38 +396,43 @@ export class StorageService {
   };
 
   public addFavicon = async (url: string): Promise<string> => {
-    if (!this.favicons.get(url)) {
-      const res = await requestURL(url);
+    try {
+      if (!this.favicons.get(url)) {
+        const res = await requestURL(url);
 
-      if (res.statusCode === 404) {
-        throw new Error('404 favicon not found');
+        if (res.statusCode === 404) {
+          throw new Error('404 favicon not found');
+        }
+
+        let data = Buffer.from(res.data, 'binary');
+
+        const type = await fromBuffer(data);
+
+        if (type && type.ext === 'ico') {
+          data = Buffer.from(new Uint8Array(await convertIcoToPng(data)));
+        }
+
+        const str = `data:${
+          (await fromBuffer(data)).ext
+        };base64,${data.toString('base64')}`;
+
+        await this.insert({
+          scope: 'favicons',
+          item: {
+            url,
+            data: str,
+          },
+        });
+
+        this.favicons.set(url, str);
+
+        return str;
+      } else {
+        return this.favicons.get(url);
       }
-
-      let data = Buffer.from(res.data, 'binary');
-
-      const type = await fromBuffer(data);
-
-      if (type && type.ext === 'ico') {
-        data = Buffer.from(new Uint8Array(await convertIcoToPng(data)));
-      }
-
-      const str = `data:${(await fromBuffer(data)).ext};base64,${data.toString(
-        'base64',
-      )}`;
-
-      this.insert({
-        scope: 'favicons',
-        item: {
-          url,
-          data: str,
-        },
-      });
-
-      this.favicons.set(url, str);
-
-      return str;
-    } else {
-      return this.favicons.get(url);
+    } catch (e) {
+      console.log(e);
+      return undefined;
     }
   };
 
