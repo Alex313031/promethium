@@ -2,7 +2,7 @@
 
 ## IPC
 
-Now, the preferred way to communicate between processes is to use [`@wexond/rpc-electron`](https://github.com/wexond/rpc) package.
+The preferred way to communicate between processes is to use the [`promethium-rpc`](https://github.com/Alex313031/promethium-rpc) package (Also forked by me). It is still under the name `@wexond/rpc-electron` for compatibility.
 
 Example:
 

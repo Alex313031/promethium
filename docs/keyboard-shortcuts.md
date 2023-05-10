@@ -1,4 +1,4 @@
-# Available keyboard shortcuts in Wexond
+# Available keyboard shortcuts in Promethium
 
 ## Windows and Linux
 
@@ -17,9 +17,9 @@
 | Go forward                  | `Alt + Right Arrow`              |
 | Close selected tab          | `Ctrl + W` or `Ctrl + F4`        |
 | Close current window        | `Ctrl + Shift + W` or `Alt + F4` |
-| Close Wexond                | `Ctrl + Shift + Q`               |
+| Close Promethium            | `Ctrl + Q`                       |
 
-### Wexond feature shortcuts
+### Promethium feature shortcuts
 
 | Action                                  | Shortcut                        |
 | --------------------------------------- | ------------------------------- |
@@ -56,10 +56,10 @@
 | Go forward                  | `⌘ + ]` or `⌘ + Right Arrow` |
 | Close selected tab          | `⌘ + W`                      |
 | Close current window        | `⌘ + Shift + W`              |
-| Hide Wexond                 | `⌘ + H`                      |
-| Close Wexond                | `⌘ + Q`                      |
+| Hide Promethium             | `⌘ + H`                      |
+| Close Promethium            | `⌘ + Q`                      |
 
-### Wexond feature shortcuts
+### Promethium feature shortcuts
 
 | Action                                  | Shortcut         |
 | --------------------------------------- | ---------------- |
@@ -77,3 +77,12 @@
 | Go to next clickable element     | `Tab`           |
 | Go to previous clickable element | `Shift + Tab`   |
 | Add current website to bookmarks | `⌘ + D`         |
+
+## Developer Shortcuts
+
+| Action                                | Shortcut                      |
+| ------------------------------------- | ----------------------------- |
+| Reload ignoring cache                 | `Ctrl + Shift + R`            |
+| Inspect Page (in DevTools)            | `Ctrl + Shift + I`            |
+| Open DevTools in a new Window         | `F12` or `Ctrl + Shift + F12` |
+| Open the Chromium `chrome://gpu` page | `Ctrl + Alt + G`              |
