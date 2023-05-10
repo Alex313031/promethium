@@ -1,14 +1,11 @@
 ----TODO----
 
 update theme
-update adblocker
 add favicon for ntp
-move backgrounds to statizs again
 fix favicon loading
 look at other skye browser commits
-add drop shadow for logo
 
-
+add kitteh easter egg
 
 ------------Notes-----------------
 main accent color:

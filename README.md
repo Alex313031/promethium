@@ -19,10 +19,10 @@ Promethium is a modern web browser, built on top of [Electron](https://www.elect
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [Downloads](#downloads)
-- [Contributing](#contributing)
 - [Development](#development)
   - [Running](#running)
 - [Documentation](#documentation)
+- [Contributing](#contributing)
 
 # About
 
@@ -56,25 +56,14 @@ Compiling and editing Chromium directly may be challenging and time consuming, s
 - Omnibox with autocomplete algorithm similar to Chromium
 - State of the art tab system
 
-# Screenshots
+### [TODO Roadmap](https://github.com/Alex313031/promethium/blob/master/TODO.txt)
+
+# Screenshot
 
 ![image](https://user-images.githubusercontent.com/11065386/81024159-d9388f80-8e72-11ea-85e7-6c30e3b66554.png)
 
-UI normal variant:
-![image](https://user-images.githubusercontent.com/11065386/81024186-f40b0400-8e72-11ea-976e-cd1ca1b43ad8.png)
-
-UI compact variant:
-![image](https://user-images.githubusercontent.com/11065386/81024222-13099600-8e73-11ea-9fc9-3c63a034403d.png)
-![image](https://user-images.githubusercontent.com/11065386/81024252-2ddc0a80-8e73-11ea-9f2f-6c9a4a175c60.png)
-
 # Downloads
 - [Stable and Beta versions](https://github.com/Alex313031/promethium/releases)
-
-# [Roadmap](https://github.com/Alex313031/promethium/projects)
-
-# Contributing
-
-If you have found any bugs or just want to see some new features in Promethium, feel free to open an issue. Every suggestion is very valuable for us, as they help us improve the browsing experience. Also, please don't hesitate to open a pull request. This is really important to us and for the further development of this project.
 
 # Development
 
@@ -115,3 +104,7 @@ More commands can be found in [`package.json`](package.json).
 # Documentation
 
 Guides, Notes, and the API reference are located in [`docs`](docs) directory.
+
+# Contributing
+
+If you have found any bugs or just want to see some new features in Promethium, feel free to open an issue. Every suggestion is very valuable for us, as they help us improve the browsing experience. Also, please don't hesitate to open a pull request. This is really important to us and for the further development of this project.
