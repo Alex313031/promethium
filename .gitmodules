@@ -1,0 +1,3 @@
+[submodule "promethium-rpc"]
+	path = promethium-rpc
+	url = https://github.com/Alex313031/promethium-rpc
