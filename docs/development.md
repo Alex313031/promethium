@@ -23,7 +23,7 @@ Common RPC interface
 
 ## Remote module
 
-As Electron will be deprecating the `remote` module, we are migrating to our RPC solution.
+As Electron deprecated the `remote` module, I am now using the `@electron/remote` package.
 
 ## Node integration
 
@@ -32,4 +32,6 @@ therefore we prefer not having requires to node.js built-in modules in renderers
 
 ## Project structure
 
-Common interfaces, constants etc. should land into the `common` directory.
+Common interfaces, etc. should land into the `common` directory.
+Common constants should land into the `constants` directory.
+Much of the UI (hosted in Electorn renderer processes) will be in the `renderer` directory.
