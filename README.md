@@ -69,7 +69,7 @@ Compiling and editing Chromium directly may be challenging and time consuming, s
 
 ## Running
 
-Before running Promethium, please ensure you have **latest** [`Node.js`](https://nodejs.org/en/) and [`Yarn`](https://classic.yarnpkg.com/en/docs/install/#windows-stable) installed on your machine.
+Before running Promethium, please ensure you have [`Node.js`](https://nodejs.org/en/download/releases) 16.x.x and [`Yarn`](https://classic.yarnpkg.com/en/docs/install) 1.x.x installed on your machine.
 
 ### Windows
 
@@ -107,4 +107,4 @@ Guides, Notes, and the API reference are located in [`docs`](docs) directory.
 
 # Contributing
 
-If you have found any bugs or just want to see some new features in Promethium, feel free to open an issue. Every suggestion is very valuable for us, as they help us improve the browsing experience. Also, please don't hesitate to open a pull request. This is really important to us and for the further development of this project.
+If you have found any bugs or just want to see some new features in Promethium, feel free to open an issue. Every suggestion is very valuable, as they help me improve the browsing experience. Also, please don't hesitate to open a pull request. This is really important to me for the further development of this project.
