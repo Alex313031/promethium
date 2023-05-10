@@ -99,6 +99,7 @@ export const SiteButtons = observer(() => {
           dense={dense}
           icon={ICON_KEY}
           size={16}
+          title="Autofill"
           onClick={onKeyClick}
         />
       )}
@@ -108,6 +109,7 @@ export const SiteButtons = observer(() => {
           toggled={store.dialogsVisibility['zoom']}
           icon={store.zoomFactor >= 1 ? ICON_MAGNIFY_PLUS : ICON_MAGNIFY_MINUS}
           size={18}
+          title="Zoom"
           dense={dense}
           onMouseDown={onZoomClick}
         />
@@ -117,6 +119,7 @@ export const SiteButtons = observer(() => {
         toggled={store.dialogsVisibility['add-bookmark']}
         icon={store.isBookmarked ? ICON_STAR_FILLED : ICON_STAR}
         size={18}
+        title="Bookmark"
         dense={dense}
         onMouseDown={onStarClick}
       />
@@ -125,8 +128,9 @@ export const SiteButtons = observer(() => {
         badge={store.settings.object.shield && blockedAds > 0}
         badgeText={blockedAds.toString()}
         icon={ICON_SHIELD}
+        title="Cliqz AdBlock"
         opacity={store.settings.object.shield ? 0.87 : 0.54}
-        onContextMenu={onShieldContextMenu}
+        onMouseDown={onShieldContextMenu}
       ></ToolbarButton>
     </>
   );

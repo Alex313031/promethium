@@ -58,6 +58,7 @@ export const ICON_FULLSCREEN_EXIT = require('~/renderer/resources/icons/fullscre
 export const ICON_PAUSE = require('~/renderer/resources/icons/pause.svg');
 export const ICON_RESUME = require('~/renderer/resources/icons/play.svg');
 export const ICON_LINK = require('~/renderer/resources/icons/link.svg');
+
 // Daytime Weather Icons
 export const ICON_WEATHER_DAY_CLEAR = require('~/renderer/resources/icons/weather/day/clear.png');
 export const ICON_WEATHER_DAY_FEW_CLOUDS = require('~/renderer/resources/icons/weather/day/few-clouds.png');
@@ -65,6 +66,7 @@ export const ICON_WEATHER_DAY_RAIN = require('~/renderer/resources/icons/weather
 export const ICON_WEATHER_DAY_SHOWERS = require('~/renderer/resources/icons/weather/day/showers.png');
 export const ICON_WEATHER_DAY_SNOW = require('~/renderer/resources/icons/weather/day/snow.png');
 export const ICON_WEATHER_DAY_STORM = require('~/renderer/resources/icons/weather/day/storm.png');
+
 // Nighttime Weather Icons
 export const ICON_WEATHER_NIGHT_CLEAR = require('~/renderer/resources/icons/weather/night/clear.png');
 export const ICON_WEATHER_NIGHT_FEW_CLOUDS = require('~/renderer/resources/icons/weather/night/few-clouds.png');
@@ -72,8 +74,3 @@ export const ICON_WEATHER_NIGHT_RAIN = require('~/renderer/resources/icons/weath
 export const ICON_WEATHER_NIGHT_SHOWERS = require('~/renderer/resources/icons/weather/night/showers.png');
 export const ICON_WEATHER_NIGHT_SNOW = require('~/renderer/resources/icons/weather/night/snow.png');
 export const ICON_WEATHER_NIGHT_STORM = require('~/renderer/resources/icons/weather/night/storm.png');
-// Background Images for the New Tab Page
-export const BACKGROUND_IMAGE = require('~/renderer/resources/imgs/backgrounds/Dawn.gif');
-export const BACKGROUND_IMAGE2 = require('~/renderer/resources/imgs/backgrounds/Girls_Just_Wanna_Have_Fun.png');
-// Main app icon
-export const APP_ICON = require('~/renderer/resources/imgs/app_icon.png');

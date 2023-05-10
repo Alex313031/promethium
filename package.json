@@ -1,7 +1,7 @@
 {
   "name": "promethium",
   "appName": "promethium",
-  "version": "6.1.2",
+  "version": "6.1.3",
   "sideEffects": false,
   "main": "build/main.bundle.js",
   "description": "Extensible, fast, and innovative Electron based web browser with Material UI design elements.",
@@ -49,11 +49,11 @@
   "devDependencies": {
     "asar": "3.2.0",
     "@babel/core": "7.14.6",
-    "@cliqz/adblocker": "1.22.2",
-    "@cliqz/adblocker-content": "1.22.2",
-    "@cliqz/adblocker-electron": "1.22.2",
-    "@cliqz/adblocker-electron-preload": "1.22.2",
-    "@cliqz/adblocker-extended-selectors": "1.22.2",
+    "@cliqz/adblocker": "1.22.7",
+    "@cliqz/adblocker-content": "1.22.7",
+    "@cliqz/adblocker-electron": "1.22.7",
+    "@cliqz/adblocker-electron-preload": "1.22.7",
+    "@cliqz/adblocker-extended-selectors": "1.22.7",
     "@electron/remote": "2.0.9",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@types/animejs": "3.1.7",
@@ -80,7 +80,7 @@
     "concurrently": "6.2.2",
     "copy-webpack-plugin": "9.1.0",
     "cross-env": "7.0.3",
-    "electron": "git+https://github.com/castlabs/electron-releases.git#469547a",
+    "electron": "git+https://github.com/castlabs/electron-releases.git#fe1bf6a",
     "electron-builder": "22.14.13",
     "electron-extensions": "git+https://github.com/Alex313031/electron-extensions.git#01f686b",
     "electron-updater": "4.3.9",
@@ -127,8 +127,6 @@
   },
   "dependencies": {
     "electron-log": "4.4.8",
-    "electron-to-chromium": "1.4.179",
-    "patch-package": "6.4.7",
-    "postinstall-postinstall": "2.1.0"
+    "electron-to-chromium": "1.4.179"
   }
 }

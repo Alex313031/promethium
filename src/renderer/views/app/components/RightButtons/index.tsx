@@ -76,6 +76,7 @@ export const RightButtons = observer(() => {
         <ToolbarButton
           divRef={(r) => (downloadDialogRef = r)}
           size={18}
+          title="Downloads"
           badge={store.downloadNotification}
           onMouseDown={onDownloadsClick}
           toggled={store.dialogsVisibility['downloads-dialog']}
@@ -86,7 +87,7 @@ export const RightButtons = observer(() => {
           value={store.downloadProgress}
         ></ToolbarButton>
       )}
-      {store.isIncognito && <ToolbarButton icon={ICON_INCOGNITO} size={18} />}
+      {store.isIncognito && <ToolbarButton title="Incognito" icon={ICON_INCOGNITO} size={18} />}
       <ToolbarButton
         divRef={(r) => (menuRef = r)}
         toggled={store.dialogsVisibility['menu']}
@@ -96,6 +97,7 @@ export const RightButtons = observer(() => {
         onMouseDown={onMenuClick}
         icon={ICON_MORE}
         size={18}
+        title="Menu"
       />
     </Buttons>
   );

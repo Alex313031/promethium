@@ -132,6 +132,7 @@ export const AddressBar = observer(() => {
         toggled={false}
         icon={ICON_SEARCH}
         size={16}
+        title="Search"
         dense
         iconStyle={{ transform: 'scale(-1,1)' }}
       />

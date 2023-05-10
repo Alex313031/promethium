@@ -42,6 +42,7 @@ export const NavigationButtons = observer(() => {
         disabled={!store.navigationState.canGoBack}
         size={20}
         icon={ICON_BACK}
+        title="Go Back"
         style={{ marginLeft: 6 }}
         onClick={onBackClick}
       />
@@ -49,10 +50,12 @@ export const NavigationButtons = observer(() => {
         disabled={!store.navigationState.canGoForward}
         size={20}
         icon={ICON_FORWARD}
+        title="Go Forward"
         onClick={onForwardClick}
       />
       <ToolbarButton
         size={20}
+        title="Refresh"
         icon={loading ? ICON_CLOSE : ICON_REFRESH}
         onClick={onRefreshClick}
       />

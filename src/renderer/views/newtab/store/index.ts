@@ -7,7 +7,7 @@ import { networkMainChannel } from '~/common/rpc/network';
 import {
   BACKGROUND_IMAGE,
   BACKGROUND_IMAGE2,
-} from '~/renderer/constants/icons';
+} from '~/renderer/constants/imgs';
 
 type NewsBehavior = 'on-scroll' | 'always-visible' | 'hidden';
 export type Preset = 'focused' | 'inspirational' | 'informational' | 'custom';

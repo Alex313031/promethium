@@ -18,6 +18,7 @@ interface Props {
   disabled?: boolean;
   className?: string;
   children?: any;
+  title: any;
   opacity?: number;
   autoInvert?: boolean;
   badgeBackground?: string;
@@ -44,6 +45,7 @@ export const ToolbarButton = observer(
     className,
     divRef,
     children,
+    title,
     opacity,
     autoInvert,
     style,
@@ -74,6 +76,7 @@ export const ToolbarButton = observer(
         className={className}
         style={style}
         toggled={toggled}
+        title={title}
         dense={dense}
         ref={divRef && divRef}
         disabled={disabled}

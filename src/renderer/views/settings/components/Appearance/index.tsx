@@ -2,11 +2,13 @@ import * as React from 'react';
 
 import { Dropdown } from '~/renderer/components/Dropdown';
 import { Switch } from '~/renderer/components/Switch';
-import { Title, Row, Control, Header } from '../App/style';
+import { Title, Row, Control, Header, Cloud } from '../App/style';
 import store from '../../store';
 import { onSwitchChange } from '../../utils';
 import { observer } from 'mobx-react-lite';
 import { TopBarVariant } from '~/interfaces';
+import { BLUE_500 } from '~/renderer/constants';
+import { IDR_CLOUD } from '~/renderer/constants/imgs';
 
 const onThemeChange = (value: string) => {
   if (value === 'auto') {
@@ -103,10 +105,13 @@ const BookmarksBar = observer(() => {
 export const Appearance = observer(() => {
   return (
     <>
-      <Header>Appearance</Header>
-      {/* <MenuAnimations /> */}
+      <Header>Appearance
+        <Cloud><img width="36px" title="Web Cloud" alt="cloud.svg" className="cloud" src={IDR_CLOUD}></img></Cloud>
+      </Header>
       <BookmarksBar />
       <WarnQuit />
+      {/* <MenuAnimations /> */}
+      <MenuAnimations />
       <ThemeVariant />
       <TopBarVariant />
     </>

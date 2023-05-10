@@ -1,4 +1,4 @@
-import { app, contextBridge, ipcRenderer, webFrame } from 'electron';
+import { app, BrowserWindow, shell, contextBridge, ipcRenderer, webFrame } from 'electron';
 
 import AutoComplete from './models/auto-complete';
 import { getTheme } from '~/utils/themes';

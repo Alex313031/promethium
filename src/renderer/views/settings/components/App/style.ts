@@ -70,3 +70,10 @@ export const Back = styled(IconButton)`
   left: -48px;
   background-image: url(${ICON_BACK});
 `;
+
+export const Cloud = styled.div`
+  margin-top: -36px;
+  margin-bottom: -36px;
+  margin-left: 24px;
+  margin-right: auto;
+`;

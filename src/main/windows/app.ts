@@ -26,6 +26,7 @@ export class AppWindow {
       titleBarStyle: 'hiddenInset',
       backgroundColor: '#ffffff',
       webPreferences: {
+        preload: `${app.getAppPath()}/build/view-preload.bundle.js`,
         plugins: true,
         // TODO: enable sandbox, contextIsolation and disable nodeIntegration to improve security
         nodeIntegration: true,
