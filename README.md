@@ -10,12 +10,12 @@
 [![PayPal](https://img.shields.io/badge/PayPal-Donate-brightgreen?style=flat-square)](https://paypal.me/alex313031?country.x=US&locale.x=en_US)
 [![Discord](https://discordapp.com/api/guilds/307605794680209409/widget.png?style=shield)](https://discord.gg/P7Vn4VX)
 
-Promethium is a modern web browser, built on top of modern web technologies such as `Electron` and `React`, that can also be used as a framework to create a custom web browser (see the [License](#license) section).
+Promethium is a modern web browser, built on top of [Electron](https://www.electronjs.org/) and [React](https://react.dev/), that can also be used as a framework to create a custom web browser.
 
 </div>
 
 # Table of Contents:
-- [Motivation](#motivation)
+- [About](#about)
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [Downloads](#downloads)
@@ -23,7 +23,6 @@ Promethium is a modern web browser, built on top of modern web technologies such
 - [Development](#development)
   - [Running](#running)
 - [Documentation](#documentation)
-- [License](#license)
 
 # About
 
