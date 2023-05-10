@@ -4,7 +4,7 @@
 
 The preferred way to communicate between processes is to use the [`promethium-rpc`](https://github.com/Alex313031/promethium-rpc) package (Also forked by me). It is still under the name `@wexond/rpc-electron` for compatibility.
 
-Example:
+Examples:
 
 Handling the IPC message in the main process:
 
@@ -32,6 +32,6 @@ therefore we prefer not having requires to node.js built-in modules in renderers
 
 ## Project structure
 
-Common interfaces, etc. should land into the `common` directory.
-Common constants should land into the `constants` directory.
+Common interfaces, etc. should land into the `common` directory. \
+Common constants should land into the `constants` directory. \
 Much of the UI (hosted in Electorn renderer processes) will be in the `renderer` directory.
