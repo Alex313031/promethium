@@ -8,5 +8,5 @@ To install an extension, you will need to extract the `crx` file of the extensio
 
 The `extensions` directory paths:
 - On Linux: `~/.config/promethium/extensions`
-- On Windows: `%USERPROFILE%/.promethium/extensions`
+- On Windows: `%APPDATA%/promethium`
 - On macOS: `~/.promethium/extensions`
