@@ -172,7 +172,7 @@ export const QuickMenu = observer(() => {
             <Shortcut>Ctrl+P</Shortcut>
           </MenuItem>
           <Line />
-          <MenuItem onClick={goToWebUIPage('settings/#about')}>
+          <MenuItem onClick={goToWebUIPage('settings#about')}>
             <Icon icon={ICON_ABOUT} />
             <MenuItemTitle>About App</MenuItemTitle>
           </MenuItem>

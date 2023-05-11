@@ -7,5 +7,6 @@ Promethium has partial support for Chrome extensions (see [#110](https://github.
 To install an extension, you will need to extract the `crx` file of the extension and put the extracted folder into the `extensions` directory.
 
 The `extensions` directory paths:
-- On Linux and macOS: `~/.promethium/extensions`
+- On Linux: `~/.config/promethium/extensions`
 - On Windows: `%USERPROFILE%/.promethium/extensions`
+- On macOS: `~/.promethium/extensions`

@@ -5,6 +5,7 @@ export const ICON_BACK = require('~/renderer/resources/icons/back.svg');
 export const ICON_FORWARD = require('~/renderer/resources/icons/forward.svg');
 export const ICON_CLOSE = require('~/renderer/resources/icons/close.svg');
 export const ICON_REFRESH = require('~/renderer/resources/icons/refresh.svg');
+export const ICON_HOME = require('~/renderer/resources/icons/home.svg');
 export const ICON_SEARCH = require('~/renderer/resources/icons/search.svg');
 export const ICON_PAGE = require('~/renderer/resources/icons/page.svg');
 export const ICON_DOWNLOAD = require('~/renderer/resources/icons/download.svg');
@@ -58,6 +59,7 @@ export const ICON_FULLSCREEN_EXIT = require('~/renderer/resources/icons/fullscre
 export const ICON_PAUSE = require('~/renderer/resources/icons/pause.svg');
 export const ICON_RESUME = require('~/renderer/resources/icons/play.svg');
 export const ICON_LINK = require('~/renderer/resources/icons/link.svg');
+export const ICON_NTP = require('~/renderer/resources/icons/ntp_favicon.svg');
 
 // Daytime Weather Icons
 export const ICON_WEATHER_DAY_CLEAR = require('~/renderer/resources/icons/weather/day/clear.png');

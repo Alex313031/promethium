@@ -1,7 +1,7 @@
 {
   "name": "promethium",
   "appName": "promethium",
-  "version": "6.1.3",
+  "version": "6.1.4",
   "sideEffects": false,
   "main": "build/main.bundle.js",
   "description": "Extensible, fast, and innovative Electron based web browser with Material UI design elements.",
@@ -26,6 +26,7 @@
     "url": "https://github.com/Alex313031/promethium/issues"
   },
   "scripts": {
+    "init": "cd promethium-rpc && yarn install",
     "dev-renderer": "cross-env DEV=1 webpack serve --config webpack.config.renderer.js",
     "dev-webpack": "cross-env DEV=1 webpack",
     "build-renderer": "webpack --config webpack.config.renderer.js",
@@ -34,12 +35,12 @@
     "ci-build": "node scripts/ci-build.js",
     "start": "npm run build && electron .",
     "e": "electron .",
-    "clean": "rimraf build && rimraf node_modules",
-    "distclean": "rimraf build && rimraf dist",
+    "clean": "rimraf build && rimraf node_modules && rimraf out",
+    "distclean": "rimraf build && rimraf out",
     "watch": "concurrently \"npm run dev-renderer\" \"npm run dev-webpack\"",
-    "compile-win": "npm run build && electron-builder -w",
-    "compile-mac": "npm run build && electron-builder -m",
-    "compile-linux": "npm run build && electron-builder -l",
+    "dist-win": "npm run build && electron-builder -w",
+    "dist-mac": "npm run build && electron-builder -m",
+    "dist-linux": "npm run build && electron-builder -l",
     "dist": "electron-builder --dir",
     "lint": "eslint \"src/**/*.ts*\" \"src/**/*.tsx*\"",
     "lint-fix": "npm run lint -- --fix",
@@ -80,9 +81,10 @@
     "concurrently": "6.2.2",
     "copy-webpack-plugin": "9.1.0",
     "cross-env": "7.0.3",
-    "electron": "git+https://github.com/castlabs/electron-releases.git#fe1bf6a",
+    "electron": "git+https://github.com/castlabs/electron-releases.git#bd10a32",
     "electron-builder": "22.14.13",
     "electron-extensions": "git+https://github.com/Alex313031/electron-extensions.git#01f686b",
+    "electron-to-chromium": "1.4.179",
     "electron-updater": "4.3.9",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.4.0",
@@ -126,7 +128,6 @@
     "webpack-merge": "5.8.0"
   },
   "dependencies": {
-    "electron-log": "4.4.8",
-    "electron-to-chromium": "1.4.179"
+    "electron-log": "4.4.8"
   }
 }

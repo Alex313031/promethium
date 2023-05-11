@@ -1,8 +1,9 @@
 node_modules
 *.log
 *.log*
-build
-dist
+/build/
+/dist/
+/out/
 /electron/
 .DS_Store
 .fusebox

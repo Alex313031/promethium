@@ -82,19 +82,21 @@ $ npm i -g windows-build-tools
 ```bash
 $ npm i -g yarn # Install yarn
 $ yarn install # Install needed depedencies.
-$ yarn run rebuild # Rebuild native modules using Electron headers.
+$ yarn init # Install local npm packages in 'promethium-rpc'.
+$ yarn run build # Build Promethium
 $ yarn run start # Build and run Promethium
+$ yarn run rebuild # Rebuild native modules using Electron headers.
 $ yarn run dev # Run Promethium in development mode
 ```
 
 ### More commands
 
 ```bash
-$ yarn run compile-win # Package Promethium for Windows
-$ yarn run compile-linux # Package Promethium for Linux
-$ yarn run compile-mac # Package Promethium for MacOS
+$ yarn run dist-win # Package Promethium for Windows
+$ yarn run dist-linux # Package Promethium for Linux
+$ yarn run dist-mac # Package Promethium for MacOS
 $ yarn run clean # Clean all node modules and build artifacts
-$ yarn run dist # Same as clean, but also delete the 'dist' dir
+$ yarn run distclean # Same as clean, but also delete the 'out' dir
 $ yarn run lint # Runs linter
 $ yarn run lint-fix # Runs linter and automatically applies fixes
 ```

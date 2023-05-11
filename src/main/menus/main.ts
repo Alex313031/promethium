@@ -6,6 +6,7 @@ import { AppWindow } from '../windows';
 import { Application } from '../application';
 import { showMenuDialog } from '../dialogs/menu';
 import { getWebUIURL } from '~/common/webui';
+import { resolve, join } from 'path';
 
 const isMac = process.platform === 'darwin';
 
@@ -123,8 +124,15 @@ export const getMainMenu = () => {
           },
           'Print',
         ),
+        ...createMenuItem(
+          ['CmdOrCtrl+Shift+Q'],
+          (window) => {
+            app.quit();
+          },
+          'Quit Promethium',
+        ),
 
-        ...(!isMac ? [{ role: 'quit' }] : [{}]),
+        // ...(!isMac ? [{ role: 'quit' }] : [{}]),
 
         // Hidden items
 
@@ -359,6 +367,20 @@ export const getMainMenu = () => {
             menuItem.checked = browserWindow.isAlwaysOnTop();
           },
         },
+      ],
+    },
+    {
+      label: 'About',
+      submenu: [
+        ...createMenuItem(['CmdOrCtrl+Shift+Alt+A'], () => {
+               setTimeout(() => {
+                 const AboutWindow = new BrowserWindow({width: 400, height: 300, title: "About Promethium"});
+                 const AboutHTML = resolve(app.getAppPath(),`static/pages/about.html`);
+                 AboutWindow.loadFile(AboutHTML);
+               });
+            },
+            'About App',
+           ),
       ],
     },
   ];

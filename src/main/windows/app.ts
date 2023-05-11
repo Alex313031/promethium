@@ -18,7 +18,7 @@ export class AppWindow {
   public constructor(incognito: boolean) {
     this.win = new BrowserWindow({
       // TODO: Add setting for this in settings either through store or process.env variable
-      frame: false,
+      frame: process.env.SHOW_FRAME,
       minWidth: 450,
       minHeight: 450,
       width: 1024,

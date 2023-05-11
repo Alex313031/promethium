@@ -42,7 +42,7 @@ export class ITab {
 
   public isPlaying = false;
 
-  public title = 'New tab';
+  public title = 'New Tab';
 
   public loading = true;
 

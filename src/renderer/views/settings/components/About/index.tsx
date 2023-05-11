@@ -8,28 +8,29 @@ import { APP_ICON } from '~/renderer/constants/imgs';
 import { observer } from 'mobx-react-lite';
 
 import { ElectronVer, ChromiumVer, V8Ver, NodeVer, AppVer } from '~/renderer/constants/versions';
-
+    
 export const About = () => {
   return (
     <>
+    <a id="about" name="about">
       <Header>About Promethium</Header>
       <Row>
-        <Title>
-          Promethium is a fork of <a rel="noopener" target="_blank" href="https://github.com/wexond">Wexond Browser</a> by <a rel="noopener" target="_blank" href="https://github.com/Alex313031">Alex313031</a>.
-        </Title>
+       <Title>
+         Promethium is a fork of <a rel="noopener" target="_blank" href="https://github.com/wexond">Wexond Browser</a> by <a rel="noopener" target="_blank" href="https://github.com/Alex313031">Alex313031</a>.
+       </Title>
      </Row>
-     <Row>      
-        <p>
-          Promethium is named after <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Promethium">radioactive element &#8470; 61</a>.
-          <br/>
-          It uses <a rel="noopener" target="_blank" href="https://www.electronjs.org">Electron</a> as a base, and combines <a rel="noopener" target="_blank" href="https://react.dev">React.js</a> with <a rel="noopener" target="_blank" href="https://m1.material.io">Material Design</a> principles, and icons from <a rel="noopener" target="_blank" href="https://fonts.google.com/icons">Google's Library</a>.
-          <br/>
-          Wexond was originally developed by <a rel="noopener" target="_blank" href="https://github.com/sentialx">Eryk Rakowski</a>.
-        </p>
+     <Row>
+       <p>
+         Promethium is named after <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Promethium">radioactive element &#8470; 61</a>.
+         <br/>
+         It uses <a rel="noopener" target="_blank" href="https://www.electronjs.org">Electron</a> as a base, and combines <a rel="noopener" target="_blank" href="https://react.dev">React.js</a> with <a rel="noopener" target="_blank" href="https://m1.material.io">Material Design</a> principles, and icons from <a rel="noopener" target="_blank" href="https://fonts.google.com/icons">Google's Library</a>.
+         <br/>
+         Wexond was originally developed by <a rel="noopener" target="_blank" href="https://github.com/sentialx">Eryk Rakowski</a>.
+       </p>
      </Row>
      <Row>
        <p>&nbsp;&nbsp;
-          <a rel="noopener" target="_blank" href="https://github.com/Alex313031/promethium">
+         <a rel="noopener" target="_blank" href="https://github.com/Alex313031/promethium">
          <img width="64px" title="Promethium Logo (Click Me!)" alt="app_icon.png" className="appicon" src={APP_ICON}></img></a>
        </p>
      </Row>
@@ -52,6 +53,7 @@ export const About = () => {
          <small>Copyright © <a href="https://thorium.rocks/about" target="_blank" rel="noopener">Alexander D. Frick</a></small>
        </p>
      </Row>
+    </a>
     </>
   );
 };

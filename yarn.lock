@@ -302,7 +302,7 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@electron/get@^1.13.0":
+"@electron/get@^1.14.1":
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/@electron/get/-/get-1.14.1.tgz#16ba75f02dffb74c23965e72d617adc721d27f40"
   integrity sha512-BrZYyL/6m0ZXz/lDxy/nlVhQz+WF+iPS6qXolEU8atw7h6v1aYkjwJZ63m+bJMBTxDE66X+r2tPS4a/8C82sZw==
@@ -1157,13 +1157,13 @@
   resolved "https://registry.yarnpkg.com/@webpack-cli/serve/-/serve-1.7.0.tgz#e1993689ac42d2b16e9194376cfb6753f6254db1"
   integrity sha512-oxnCNGj88fL+xzV+dacXs44HcDwf1ovs3AuEzvP7mqXw7fQntqIhQ1BRmynh4qEKQSSSRSWVyXRjmTbZIX9V2Q==
 
-"@wexond/rpc-core@file:./packages/rpc-core":
+"@wexond/rpc-core@file:./promethium-rpc/rpc-core":
   version "1.0.4"
 
-"@wexond/rpc-electron@file:./packages/rpc-electron":
+"@wexond/rpc-electron@file:./promethium-rpc/rpc-electron":
   version "1.0.4"
 
-"@wexond/rpc-node@file:./packages/rpc-node":
+"@wexond/rpc-node@file:./promethium-rpc/rpc-node":
   version "1.0.4"
 
 "@xtuc/ieee754@^1.2.0":
@@ -2544,9 +2544,9 @@ electron-to-chromium@1.4.179:
   integrity sha512-1XeTb/U/8Xgh2YgPOqhakLYsvCcU4U7jUjTMbEnhIJoIWd/Qt3yC8y0cbG+fHzn4zUNF99Ey1xiPf20bwgLO3Q==
 
 electron-to-chromium@^1.4.284:
-  version "1.4.390"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.390.tgz#84fa525ef2779a5bdb5ade59866eef4da87c1009"
-  integrity sha512-9h6KDGTynRfpM16U40uLSCxRO3diIKcXXI0mPChKls7sfkxOlCH1sgSJ14Rb00BFomQNHY/p67gaZSu5Mu8j6w==
+  version "1.4.391"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.391.tgz#197994210792e29e39baf3ce807df42f66e9b5f8"
+  integrity sha512-GqydVV1+kUWY5qlEzaw34/hyWTApuQrHiGrcGA2Kk/56nEK44i+YUW45VH43JuZT0Oo7uY8aVtpPhBBZXEWtSA==
 
 electron-updater@4.3.9:
   version "4.3.9"
@@ -2562,11 +2562,11 @@ electron-updater@4.3.9:
     lodash.isequal "^4.5.0"
     semver "^7.3.5"
 
-"electron@git+https://github.com/castlabs/electron-releases.git#fe1bf6a":
-  version "18.3.15"
-  resolved "git+https://github.com/castlabs/electron-releases.git#fe1bf6a8ea89bc6dd9cfe2219ec15de76f89908c"
+"electron@git+https://github.com/castlabs/electron-releases.git#bd10a32":
+  version "19.1.9"
+  resolved "git+https://github.com/castlabs/electron-releases.git#bd10a324a8b21c7812e75033d830389006fcc610"
   dependencies:
-    "@electron/get" "^1.13.0"
+    "@electron/get" "^1.14.1"
     "@types/node" "^16.11.26"
     extract-zip "^1.0.3"
 

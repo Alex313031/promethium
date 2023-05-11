@@ -121,6 +121,7 @@ export const IconItem = styled.div`
       bottom: 0;
       ${centerIcon(20)};
       background-image: url(${icon});
+      background-size: 24px;
       filter: invert(100%);
     }
   `};

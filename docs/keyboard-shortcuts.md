@@ -17,7 +17,7 @@
 | Go forward                  | `Alt + Right Arrow`              |
 | Close selected tab          | `Ctrl + W` or `Ctrl + F4`        |
 | Close current window        | `Ctrl + Shift + W` or `Alt + F4` |
-| Close Promethium            | `Ctrl + Q`                       |
+| Close Promethium            | `Ctrl + Shift + Q`               |
 
 ### Promethium feature shortcuts
 

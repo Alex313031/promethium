@@ -9,6 +9,7 @@ import {
   ICON_DOWNLOAD,
   ICON_INCOGNITO,
   ICON_MORE,
+  ICON_MENU,
 } from '~/renderer/constants/icons';
 import { Buttons, Separator } from './style';
 import store from '../../store';
@@ -75,7 +76,7 @@ export const RightButtons = observer(() => {
       {store.downloadsButtonVisible && (
         <ToolbarButton
           divRef={(r) => (downloadDialogRef = r)}
-          size={18}
+          size={19}
           title="Downloads"
           badge={store.downloadNotification}
           onMouseDown={onDownloadsClick}
@@ -96,7 +97,7 @@ export const RightButtons = observer(() => {
         badgeTop={6}
         onMouseDown={onMenuClick}
         icon={ICON_MORE}
-        size={18}
+        size={22}
         title="Menu"
       />
     </Buttons>

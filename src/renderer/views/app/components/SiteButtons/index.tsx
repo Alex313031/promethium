@@ -98,7 +98,7 @@ export const SiteButtons = observer(() => {
         <ToolbarButton
           dense={dense}
           icon={ICON_KEY}
-          size={16}
+          size={18}
           title="Autofill"
           onClick={onKeyClick}
         />

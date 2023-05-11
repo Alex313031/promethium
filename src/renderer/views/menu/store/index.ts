@@ -28,7 +28,8 @@ export class Store extends DialogStore {
       this.alwaysOnTop = remote.getCurrentWindow().isAlwaysOnTop();
     }
 
-    this.updateAvailable = await ipcRenderer.invoke('is-update-available');
+    // TODO: Reenable auto updates
+    // this.updateAvailable = await ipcRenderer.invoke('is-update-available');
   }
 
   public async save() {
