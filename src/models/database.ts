@@ -9,7 +9,7 @@ interface IAction<T> {
 }
 
 export class Database<T> {
-  private scope: string;
+  private readonly scope: string;
 
   public constructor(scope: string) {
     this.scope = scope;

@@ -6,8 +6,11 @@ import { Title, Row, Control, Header, Cloud } from '../App/style';
 import store from '../../store';
 import { onSwitchChange } from '../../utils';
 import { observer } from 'mobx-react-lite';
+import { Input } from '~/renderer/components/Input';
+import { useState } from 'react';
+import { NormalButton } from '../App';
 import { TopBarVariant } from '~/interfaces';
-import { BLUE_500 } from '~/renderer/constants';
+import { BLUE_500, BLUEGREEN } from '~/renderer/constants';
 import { IDR_CLOUD } from '~/renderer/constants/imgs';
 
 const onThemeChange = (value: string) => {
@@ -98,6 +101,37 @@ const BookmarksBar = observer(() => {
       <Control>
         <Switch value={bookmarksBar} />
       </Control>
+    </Row>
+  );
+});
+
+const NewTabImage = observer(() => {
+  const { tab } = store.settings;
+  const [image, setImage] = useState('');
+  return (
+    <Row>
+      <Title>New tab background image</Title>
+      <Control>
+        <Input
+          onChange={(event) => {
+            setImage(event.target.value);
+          }}
+          style={{
+            width: '200px',
+          }}
+          tabIndex={0}
+          className="textfield"
+          value={tab.image}
+        />
+      </Control>
+      <NormalButton
+        onClick={() => {
+          store.settings.tab.image = image;
+          store.save();
+        }}
+      >
+        Save
+      </NormalButton>
     </Row>
   );
 });

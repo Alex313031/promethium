@@ -20,7 +20,7 @@ export const saveAs = async () => {
 
   const ext = extname(filePath);
 
-  webContents.savePage(filePath, ext === '.htm' ? 'HTMLOnly' : 'HTMLComplete');
+  await webContents.savePage(filePath, ext === '.htm' ? 'HTMLOnly' : 'HTMLComplete');
 };
 
 export const viewSource = async () => {

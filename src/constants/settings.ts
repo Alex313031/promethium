@@ -90,6 +90,11 @@ export const DEFAULT_SETTINGS: ISettings = {
   startupBehavior: {
     type: 'continue',
   },
+  tab: {
+    image: '',
+    topSites: true,
+    pinned: true,
+  },
   warnOnQuit: false,
   version: 2,
   downloadsDialog: false,
@@ -102,5 +107,6 @@ export const DEFAULT_SETTINGS: ISettings = {
     : '',
   doNotTrack: true,
   globalPrivacyControl: true,
-  topBarVariant: 'default'
+  topBarVariant: 'default',
+  defaultBrowser: false
 };

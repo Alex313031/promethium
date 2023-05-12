@@ -32,3 +32,8 @@ export const ORANGE_500 = '#FF9800';
 export const DEEP_ORANGE_500 = '#FF5722';
 
 export const BLUE_GRAY_500 = '#607D8B';
+
+// Begin promethium colours
+export const BLUEGREEN = '#1BE1BE';
+
+export const DARK_GREEN = '#008000';

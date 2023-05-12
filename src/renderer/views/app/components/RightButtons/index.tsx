@@ -5,6 +5,7 @@ import * as remote from '@electron/remote';
 import { ToolbarButton } from '../ToolbarButton';
 import { BrowserAction } from '../BrowserAction';
 import {
+  ICON_ADD,
   ICON_SHIELD,
   ICON_DOWNLOAD,
   ICON_INCOGNITO,

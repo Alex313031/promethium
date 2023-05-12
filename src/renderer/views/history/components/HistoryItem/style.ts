@@ -2,14 +2,16 @@ import styled, { css } from 'styled-components';
 
 import { centerIcon } from '~/renderer/mixins';
 import { ITheme } from '~/interfaces';
-import { ICON_CLOSE } from '~/renderer/constants/icons';
+import { ICON_CLOSE, ICON_TRASH } from '~/renderer/constants/icons';
+import { RED_500 } from '~/renderer/constants';
 
 export const Remove = styled.div`
   height: 16px;
   width: 16px;
   cursor: pointer;
+  color: ${RED_500};
   opacity: 0.54;
-  background-image: url(${ICON_CLOSE});
+  background-image: url(${ICON_TRASH});
   ${centerIcon()};
   ${({ theme }: { theme?: ITheme }) => css`
     filter: ${theme['pages.lightForeground'] ? 'invert(100%)' : 'none'};

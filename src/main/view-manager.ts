@@ -20,7 +20,7 @@ export class ViewManager extends EventEmitter {
 
   public incognito: boolean;
 
-  private window: AppWindow;
+  private readonly window: AppWindow;
 
   public get fullscreen() {
     return this._fullscreen;
@@ -165,7 +165,8 @@ export class ViewManager extends EventEmitter {
     Object.values(this.views).forEach((x) => x.destroy());
   }
 
-  public select(id: number, focus = true) {
+  public async select(id: number, focus = true) {
+    // console.trace();
     const { selected } = this;
     const view = this.views.get(id);
 
@@ -191,7 +192,7 @@ export class ViewManager extends EventEmitter {
     this.window.updateTitle();
     view.updateBookmark();
 
-    this.fixBounds();
+    await this.fixBounds();
 
     view.updateNavigationState();
 
@@ -225,10 +226,10 @@ export class ViewManager extends EventEmitter {
     }
   }
 
-  private setBoundsListener() {
+  private async setBoundsListener() {
     // resize the BrowserView's height when the toolbar height changes
     // ex: when the bookmarks bar appears
-    this.window.webContents.executeJavaScript(`
+    await this.window.webContents.executeJavaScript(`
         const {ipcRenderer} = require('electron');
         const resizeObserver = new ResizeObserver(([{ contentRect }]) => {
           ipcRenderer.send('resize-height');

@@ -21,6 +21,11 @@ export interface ISettings {
   bookmarksBar: boolean;
   suggestions: boolean;
   searchEngine: number;
+  tab: {
+    image: string;
+    topSites: boolean;
+    pinned: boolean;
+  };
   searchEngines: ISearchEngine[];
   startupBehavior: IStartupBehavior;
   warnOnQuit: boolean;
@@ -29,6 +34,7 @@ export interface ISettings {
   downloadsDialog: boolean;
   downloadsPath: string;
   doNotTrack: boolean;
-  globalPrivacyControl: boolean;
   topBarVariant: TopBarVariant;
+  globalPrivacyControl: boolean;
+  defaultBrowser: boolean;
 }

@@ -2,7 +2,7 @@ import { ipcRenderer } from 'electron';
 import { hashCode } from '~/utils/string';
 
 export class IpcEvent {
-  private scope: string;
+  private readonly scope: string;
   private name: string;
   private callbacks: Function[] = [];
   private listener = false;

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { ITheme } from '~/interfaces';
-import { BLUE_300 } from '~/renderer/constants';
+import { BLUE_300, BLUEGREEN } from '~/renderer/constants';
 
 export const StyledAddressBar = styled.div`
   height: 30px;
@@ -23,11 +23,11 @@ export const StyledAddressBar = styled.div`
           ? 'rgba(255, 255, 255, 0.12)'
           : 'transparent'
         : focus
-        ? `${BLUE_300} !important`
+        ? `${BLUEGREEN} !important`
         : 'transparent'};
     color: ${theme['addressbar.textColor']};
     box-shadow: ${focus && !theme.isCompact
-      ? `0 0 0 1px ${BLUE_300}`
+      ? `0 0 0 1px ${BLUEGREEN}`
       : `0px 0px 5px 0px rgba(0,0,0,0.1)`};
 
     ${!theme.isCompact &&
@@ -39,6 +39,9 @@ export const StyledAddressBar = styled.div`
       }
     `}
   `};
+
+  transition: background-color 0.4s, color 0.4s;
+  transition-timing-function: ease-out;
 `;
 
 export const InputContainer = styled.div`

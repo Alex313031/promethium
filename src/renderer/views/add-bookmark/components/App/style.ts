@@ -27,6 +27,7 @@ export const Subtitle = styled.div`
 export const Title = styled.div`
   font-size: 16px;
   margin-bottom: 16px;
+  font-weight: bold;
   ${robotoRegular()};
 `;
 
@@ -37,8 +38,16 @@ export const Row = styled.div`
   display: flex;
 `;
 
+export const Col = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+`;
+
 export const Label = styled.div`
   font-size: 12px;
+  margin-bottom: 4px;
 `;
 
 export const Buttons = styled.div`

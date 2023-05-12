@@ -21,6 +21,7 @@ export const MenuItem = styled.div`
   position: relative;
   padding: 0 12px;
   font-size: 12px;
+  border-radius: 4px;
 
   ${({ arrow }: { arrow?: boolean; disabled?: boolean }) =>
     arrow &&

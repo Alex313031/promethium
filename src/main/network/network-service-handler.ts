@@ -6,7 +6,6 @@ export class NetworkServiceHandler implements RpcMainHandler<NetworkService> {
   private static instance?: NetworkServiceHandler;
 
   public static get() {
-    console.log(this.instance);
     if (!this.instance) this.instance = new NetworkServiceHandler();
     return this.instance;
   }
@@ -18,8 +17,8 @@ export class NetworkServiceHandler implements RpcMainHandler<NetworkService> {
   request(e: RpcMainEvent, url: string) {
     try {
       return requestURL(url);
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.error(err);
       return undefined;
     }
   }

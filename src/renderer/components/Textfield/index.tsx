@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ERROR_COLOR, BLUE_500 } from '~/renderer/constants';
+import { ERROR_COLOR, BLUE_500, BLUEGREEN } from '~/renderer/constants';
 import { StyledTextfield, Input, Label, Indicator, Icon } from './style';
 
 export type TestFunction = (str: string) => boolean;

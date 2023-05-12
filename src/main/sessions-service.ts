@@ -42,8 +42,8 @@ export class SessionsService {
         `${app.getAppPath()}/build/extensions-preload.bundle.js`,
       );
 
-      ipcMain.on('load-extensions', () => {
-        this.loadExtensions();
+      ipcMain.on('load-extensions', async () => {
+        await this.loadExtensions();
       });
 
       ipcMain.handle('get-extensions', () => {

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { transparency, BLUE_300, BLUE_500 } from '~/renderer/constants';
+import { transparency, BLUE_300, BLUE_500, BLUEGREEN } from '~/renderer/constants';
 import { ITheme } from '~/interfaces';
 import { body2, centerIcon } from '~/renderer/mixins';
 
@@ -54,7 +54,7 @@ export const RightText = styled(SuggestionText)`
 
 export const Url = styled(RightText)`
   ${({ theme }: { theme?: ITheme }) => css`
-    color: ${theme['searchBox.lightForeground'] ? BLUE_300 : '#3297FD'};
+    color: ${theme['searchBox.lightForeground'] ? BLUEGREEN : BLUE_300};
   `}
 `;
 

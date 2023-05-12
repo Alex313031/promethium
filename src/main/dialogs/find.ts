@@ -2,15 +2,14 @@ import { VIEW_Y_OFFSET } from '~/constants/design';
 import { BrowserWindow } from 'electron';
 import { Application } from '../application';
 
-export const showFindDialog = (browserWindow: BrowserWindow) => {
-  const appWindow = Application.instance.windows.fromBrowserWindow(
-    browserWindow,
-  );
+export const showFindDialog = async (browserWindow: BrowserWindow) => {
+  const appWindow =
+    Application.instance.windows.fromBrowserWindow(browserWindow);
 
-  const dialog = Application.instance.dialogs.show({
+  const dialog = await Application.instance.dialogs.show({
     name: 'find',
     browserWindow,
-    devTools: false,
+    devtools: false,
     getBounds: () => {
       const { width } = browserWindow.getContentBounds();
       return {

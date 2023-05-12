@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { StyledSwitch, Thumb } from './styles';
-import { BLUE_500 } from '~/renderer/constants';
+import { BLUE_500, BLUEGREEN } from '~/renderer/constants';
 
 interface Props {
   color?: string;
@@ -26,6 +26,6 @@ export const Switch = ({ color, clickable, value, onClick, dense }: Props) => {
 };
 
 (Switch as any).defaultProps = {
-  color: BLUE_500,
+  color: BLUEGREEN,
   defaultValue: false,
 };

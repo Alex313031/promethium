@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { EASING_FUNCTION, BLUE_500 } from '~/renderer/constants';
+import { EASING_FUNCTION, BLUE_500, BLUEGREEN } from '~/renderer/constants';
 import { ICON_CHECK } from '~/renderer/constants/icons';
 import { centerIcon, centerBoth } from '~/renderer/mixins';
 
@@ -29,11 +29,11 @@ export const StyledCheckbox = styled.div`
   transition: 0.15s background-color, 0.15s border-color;
 
   ${({ toggled }: { toggled: boolean }) => css`
-    background-color: ${toggled ? BLUE_500 : 'transparent'};
-    border-color: ${toggled ? BLUE_500 : 'rgba(0, 0, 0, 0.54)'};
+    background-color: ${toggled ? BLUEGREEN : 'transparent'};
+    border-color: ${toggled ? BLUEGREEN : 'rgba(0, 0, 0, 0.54)'};
 
     &::before {
-      background-color: ${toggled ? BLUE_500 : '#000'};
+      background-color: ${toggled ? BLUEGREEN : '#000'};
     }
   `}
 

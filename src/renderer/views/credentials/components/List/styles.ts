@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { robotoRegular, centerIcon } from '~/renderer/mixins';
-import { transparency, ICON_CLOSE } from '~/renderer/constants';
+import { transparency, ICON_CLOSE, ICON_TRASH } from '~/renderer/constants';
 
 export const StyledItem = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const Password = styled(Username)`
 export const DeleteIcon = styled.div`
   width: 16px;
   height: 16px;
-  background-image: url(${ICON_CLOSE});
+  background-image: url(${ICON_TRASH});
   opacity: ${transparency.icons.inactive};
   cursor: pointer;
   ${centerIcon('contain')};

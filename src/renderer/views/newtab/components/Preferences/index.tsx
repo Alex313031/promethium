@@ -156,7 +156,7 @@ export const Preferences = observer(() => {
           </SwitchItem>
           <ContextMenuItem
             bigger
-            disabled={!store.imageVisible || store.changeImageDaily}
+            disabled={!store.imageVisible}
           >
             Choose image...
           </ContextMenuItem>

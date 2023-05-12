@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { BLUE_500, ICON_PAGE, ICON_MORE } from '~/renderer/constants';
+import { BLUE_500, BLUEGREEN, ICON_PAGE, ICON_MORE } from '~/renderer/constants';
 import { centerIcon } from '~/renderer/mixins';
 import { ITheme } from '~/interfaces';
 
@@ -46,7 +46,7 @@ export const SecondaryText = styled.div`
 
 export const Progress = styled.div`
   height: 5px;
-  background-color: ${BLUE_500};
+  background-color: ${BLUEGREEN};
   border-radius: 16px;
 `;
 

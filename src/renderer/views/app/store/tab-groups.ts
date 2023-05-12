@@ -20,6 +20,7 @@ import {
   ORANGE_500,
   DEEP_ORANGE_500,
   BLUE_GRAY_500,
+  BLUEGREEN,
 } from '~/renderer/constants';
 import { ipcRenderer } from 'electron';
 
@@ -44,6 +45,7 @@ export class TabGroupsStore {
     ORANGE_500,
     DEEP_ORANGE_500,
     BLUE_GRAY_500,
+    BLUEGREEN,
   ];
 
   private store: Store;

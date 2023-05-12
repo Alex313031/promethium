@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { ITheme } from '~/interfaces';
 import { platform } from 'os';
-import { ICON_FULLSCREEN_EXIT } from '~/renderer/constants/icons'
+import { ICON_FULLSCREEN_EXIT } from '~/renderer/constants/icons';
 import { centerIcon } from '~/renderer/mixins';
 
 // margin-top: ${isHTMLFullscreen ? -TOOLBAR_HEIGHT : 0}px;
@@ -42,6 +42,9 @@ export const StyledTitlebar = styled.div`
       -webkit-app-region: ${isFullscreen ? 'no-drag' : 'drag'};
     }
   `};
+
+  transition: background-color 0.4s, color 0.4s;
+  transition-timing-function: ease-out;
 `;
 
 export const FullscreenExitButton = styled.div`

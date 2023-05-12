@@ -13,7 +13,7 @@ import {
 } from './style';
 import store from '../../store';
 import { callViewMethod } from '~/utils/view';
-import { ICON_UP, ICON_DOWN, ICON_CLOSE } from '~/renderer/constants/icons';
+import { ICON_UP, ICON_DOWN, ICON_CLOSE, ICON_SEARCH } from '~/renderer/constants/icons';
 import { UIStyle } from '~/renderer/mixins/default-styles';
 
 const onInput = async () => {

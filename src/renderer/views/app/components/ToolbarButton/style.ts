@@ -21,6 +21,7 @@ export const Icon = styled.div`
     autoInvert,
     theme,
     dense,
+    inhertTextColor,
   }: {
     size: number;
     disabled: boolean;
@@ -28,6 +29,7 @@ export const Icon = styled.div`
     autoInvert?: boolean;
     dense?: boolean;
     theme?: ITheme;
+    inhertTextColor?: boolean;
   }) => css`
     ${centerIcon(size)};
     opacity: ${disabled ? 0.25 : opacity};

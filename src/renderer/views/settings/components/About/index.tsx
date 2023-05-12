@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Header, Row, Title, Control } from '../App/style';
 import { Button } from '~/renderer/components/Button';
 import store from '../../store';
-import { BLUE_500 } from '~/renderer/constants';
+import { BLUE_500, BLUEGREEN } from '~/renderer/constants';
 import { APP_ICON } from '~/renderer/constants/imgs';
 import { observer } from 'mobx-react-lite';
 

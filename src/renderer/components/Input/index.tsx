@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { ITheme } from '~/interfaces';
+import { BLUE_500 } from '~/renderer/constants';
 import { centerIcon } from '~/renderer/mixins';
 import { ICON_DROPDOWN } from '~/renderer/constants/icons';
 
@@ -16,7 +17,7 @@ export const Control = css`
   font-size: 12px;
 
   &:focus {
-    box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.54);
+    box-shadow: 0 0 0 2px ${BLUE_500};
   }
 
   ${({ theme }: { theme: ITheme }) => css`
@@ -28,7 +29,7 @@ export const Control = css`
 export const Input = styled.input.attrs(() => ({
   spellCheck: false,
 }))`
-  ${Control}
+  ${Control};
 `;
 
 export const Dropdown = styled.div`

@@ -18,8 +18,8 @@ export const NavigationDrawerItem = observer(
     return (
       <StyledNavigationDrawerItem
         title={children}
-        selected={selected}
         onClick={onClick}
+        selected={selected}
       >
         {icon && <Icon style={{ backgroundImage: `url(${icon})` }} />}
         {children}

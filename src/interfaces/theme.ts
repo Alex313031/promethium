@@ -17,8 +17,10 @@ export interface ITheme {
   'control.hover.backgroundColor': string;
   'control.valueColor': string;
   'control.lightIcon': boolean;
+  'control.borderBottomColor': string;
   'switch.backgroundColor': string;
 
+  'button.backgroundColor': string;
   'dialog.separator.color': string;
   'dialog.backgroundColor': string;
   'dialog.textColor': string;
@@ -32,7 +34,7 @@ export interface ITheme {
   'pages.textColor': string;
   'pages.navigationDrawer1.backgroundColor': string;
   'pages.navigationDrawer2.backgroundColor': string;
-
+  'pages.navigationDrawer2.searchBar.backgroundColor': string;
   'dropdown.backgroundColor': string;
   'dropdown.backgroundColor.translucent': string;
   'dropdown.separator.color': string;

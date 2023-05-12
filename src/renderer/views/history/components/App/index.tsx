@@ -108,7 +108,7 @@ export default observer(() => {
           </RangeItem>
           <div style={{ flex: 1 }} />
           <NavigationDrawer.Item icon={ICON_TRASH} onClick={onClearClick}>
-            Clear browsing data
+            Clear Browsing Data
           </NavigationDrawer.Item>
         </NavigationDrawer>
         <Content onScroll={onScroll}>

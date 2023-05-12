@@ -1,12 +1,13 @@
 import { BrowserWindow } from 'electron';
 import { Application } from '../application';
 import { DIALOG_MARGIN_TOP, DIALOG_MARGIN } from '~/constants/design';
+import {IDialog} from "~/main/services/dialogs-service";
 
-export const showTabGroupDialog = (
+export const showTabGroupDialog = async (
   browserWindow: BrowserWindow,
   tabGroup: any,
 ) => {
-  const dialog = Application.instance.dialogs.show({
+  const dialog: IDialog = await Application.instance.dialogs.show({
     name: 'tabgroup',
     browserWindow,
     getBounds: () => ({

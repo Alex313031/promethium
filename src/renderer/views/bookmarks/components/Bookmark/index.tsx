@@ -87,6 +87,7 @@ export const Bookmark = observer(({ data }: { data: IBookmark }) => {
       style={{ borderRadius: 0 }}
     >
       <Favicon
+        theme={store.theme}
         style={{
           backgroundImage: `url(${favicon})`,
           filter:

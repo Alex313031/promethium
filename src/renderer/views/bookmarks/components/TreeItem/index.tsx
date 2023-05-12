@@ -5,6 +5,7 @@ import { IBookmark } from '~/interfaces';
 import store from '../../store';
 import { getBookmarkTitle } from '../../utils';
 import { StyledTreeItem, DropIcon, FolderIcon, Label } from './style';
+import { ICON_ARROW_RIGHT, ICON_DOWN, ICON_FOLDER } from '~/renderer/constants';
 
 const onClick = (item: IBookmark) => () => {
   store.currentFolder = item._id;

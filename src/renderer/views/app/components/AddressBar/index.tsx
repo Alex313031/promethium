@@ -10,6 +10,7 @@ import { StyledAddressBar, InputContainer, Input, Text } from './style';
 import { ICON_SEARCH } from '~/renderer/constants';
 import { SiteButtons } from '../SiteButtons';
 import { DEFAULT_TITLEBAR_HEIGHT } from '~/constants/design';
+import { NEWTAB_URL } from '~/constants/tabs';
 
 let mouseUpped = false;
 
@@ -75,8 +76,16 @@ const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget;
     let url = value;
 
-    if (isURL(value)) {
-      url = value.indexOf('://') === -1 ? `https://${value}` : value;
+    if (value.trim() === '') {
+      callViewMethod(store.tabs.selectedTabId, 'loadURL', NEWTAB_URL);
+      return;
+    } else if (isURL(value)) {
+      url =
+        value.indexOf('://') === -1
+          ? value.startsWith('localhost')
+            ? `http://${value}`
+            : `https://${value}`
+          : value;
     } else {
       url = store.settings.searchEngine.url.replace('%s', value);
     }

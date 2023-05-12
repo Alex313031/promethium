@@ -89,6 +89,7 @@ export const Button = styled.div`
   }
 
   &:hover {
+    opacity: 1;
     &:after {
       opacity: 1;
     }

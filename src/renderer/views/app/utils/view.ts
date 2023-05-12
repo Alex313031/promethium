@@ -1,16 +1,16 @@
 import store from '../store';
 
-export const loadURL = (url: string) => {
+export const loadURL = async (url: string) => {
   const tab = store.tabs.selectedTab;
 
   if (!tab) {
-    store.tabs.addTab({ url, active: true });
+    await store.tabs.addTab({ url, active: true });
   } else {
     tab.url = url;
     try {
-      tab.callViewMethod('loadURL', url);
-    } catch (e) {
-      console.error(e);
+      await tab.callViewMethod('loadURL', url);
+    } catch (err) {
+      console.error(err);
     }
   }
 };

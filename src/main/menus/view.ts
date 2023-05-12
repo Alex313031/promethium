@@ -55,7 +55,7 @@ export const getViewMenu = (
           appWindow.viewManager.create(
             {
               url: params.srcURL,
-              active: false,
+              active: true,
             },
             true,
           );
@@ -218,7 +218,7 @@ export const getViewMenu = (
         label: 'Save as...',
         accelerator: 'CmdOrCtrl+S',
         click: async () => {
-          saveAs();
+          await saveAs();
         },
       },
       {
@@ -234,8 +234,8 @@ export const getViewMenu = (
       {
         label: 'View page source',
         accelerator: 'CmdOrCtrl+U',
-        click: () => {
-          viewSource();
+        click: async () => {
+          await viewSource();
         },
       },
     ]);

@@ -41,6 +41,7 @@ export const Item = styled(ItemBase)`
     )};
 
     &:hover {
+      top: -2.5px;
       box-shadow: ${shadows(8)};
       background-color: ${getBgColor(
         imageSet,
@@ -53,7 +54,6 @@ export const Item = styled(ItemBase)`
 
 export const AddItem = styled(Item)`
   ${centerIcon(36)};
-  background-image: url(${ICON_ADD});
 `;
 
 export const Icon = styled.div`
@@ -75,7 +75,7 @@ export const Icon = styled.div`
   }) => css`
     height: ${add ? 32 : 24}px;
     width: ${add ? 32 : 24}px;
-    background-image: url(${add ? ICON_ADD : icon});
+    background-image: url(${icon});
     opacity: ${add || custom ? 0.54 : 1};
     filter: ${theme['pages.lightForeground'] && custom
       ? 'invert(100%)'

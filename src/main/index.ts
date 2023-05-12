@@ -37,13 +37,31 @@ app.commandLine.appendSwitch('ignore-gpu-blocklist');
 app.commandLine.appendSwitch('enable-gpu-rasterization');
 // Enable Zero Copy for GPU memory associated with Tiles
 app.commandLine.appendSwitch('enable-zero-copy');
+// Inform GPU process that GPU context will not be lost in power saving modes
+// Useful for fixing blank or pink screens/videos upon system resume, etc
+app.commandLine.appendSwitch('gpu-no-context-lost');
+// Enable all WebGL Features
+app.commandLine.appendSwitch('enable-webgl-draft-extensions');
 // Transparent overlays for Promethium UI
 app.commandLine.appendSwitch('enable-transparent-visuals');
 
+// Enable native CPU-mappable GPU memory buffer support on Linux
+if (process.platform === 'linux') {
+  app.commandLine.appendSwitch('enable-native-gpu-memory-buffers');
+}
+
 // Enable useful features
-app.commandLine.appendSwitch(
-  'enable-features','CanvasOopRasterization,CSSColorSchemeUARendering,ImpulseScrollAnimations,ParallelDownloading,JXL,VaapiVideoDecoder,VaapiVideoEncoder',
-);
+if (process.platform === 'linux') {
+  app.commandLine.appendSwitch(
+  'enable-features','CanvasOopRasterization,CSSColorSchemeUARendering,ImpulseScrollAnimations,ParallelDownloading,Portals,StorageBuckets,JXL,VaapiVideoDecoder,VaapiVideoEncoder',
+  );
+}
+// VAAPI is only applicable on linux so copy above without vaapi flags
+if (process.platform === 'win32' || process.platform === 'darwin') {
+  app.commandLine.appendSwitch(
+  'enable-features','CanvasOopRasterization,CSSColorSchemeUARendering,ImpulseScrollAnimations,ParallelDownloading,Portals,StorageBuckets,JXL',
+  );
+}
 
 if (process.env.NODE_ENV === 'development') {
   app.commandLine.appendSwitch('remote-debugging-port', '9222');
@@ -55,7 +73,9 @@ ipcMain.setMaxListeners(0);
 // app.setAsDefaultProtocolClient('https');
 
 const application = Application.instance;
-application.start();
+(async () => {
+  await application.start();
+})()
 
 process.on('uncaughtException', (error) => {
   console.error(error);
@@ -90,7 +110,7 @@ ipcMain.handle(
         return result;
       }
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   },
 );

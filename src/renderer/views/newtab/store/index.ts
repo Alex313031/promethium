@@ -3,6 +3,7 @@ import { ISettings, ITheme, IVisitedItem } from '~/interfaces';
 import { getTheme } from '~/utils/themes';
 import { INewsItem } from '~/interfaces/news-item';
 import { networkMainChannel } from '~/common/rpc/network';
+import { DEFAULT_SETTINGS } from '~/constants';
 
 import {
   BACKGROUND_IMAGE,

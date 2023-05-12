@@ -3,6 +3,18 @@
 /* eslint-disable @typescript-eslint/ban-ts-ignore */
 // https://stackoverflow.com/a/13542669
 
+// @ts-ignore
+const hextorgb2 = require('hex-to-rgb');
+export const contrast = (hex) => {
+  const rgb = hextorgb2(hex);
+  const o = Math.round(
+    (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) /
+      1000,
+  );
+
+  return o <= 180 ? 'dark' : 'light';
+};
+
 export const getColorBrightness = (color: string) => {
   let r: number;
   let g;
@@ -46,11 +58,12 @@ export const rgbToHex = (rgba: number[]) => {
 export const hexToRgb = (hex) => {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+
+  const hexResult = hex.replace(shorthandRegex, function (m, r, g, b) {
     return r + r + g + g + b + b;
   });
 
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexResult);
   return result
     ? {
         r: parseInt(result[1], 16),

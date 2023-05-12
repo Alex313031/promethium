@@ -1,14 +1,15 @@
 import { BrowserWindow } from 'electron';
 import { Application } from '../application';
 import { DIALOG_MARGIN_TOP, DIALOG_MARGIN } from '~/constants/design';
+import {IDialog} from "~/main/services/dialogs-service";
 
-export const showMenuDialog = (
+export const showMenuDialog = async (
   browserWindow: BrowserWindow,
   x: number,
   y: number,
 ) => {
   const menuWidth = 330;
-  const dialog = Application.instance.dialogs.show({
+  const dialog: IDialog = await Application.instance.dialogs.show({
     name: 'menu',
     browserWindow,
     getBounds: () => ({

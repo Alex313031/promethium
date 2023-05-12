@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { transparency } from '~/renderer/constants/transparency';
 import { Button, Icon, Badge, PreloaderBg } from './style';
-import { BLUE_500 } from '~/renderer/constants';
+import { BLUE_500, BLUEGREEN, DARK_GREEN } from '~/renderer/constants';
 import { Preloader } from '~/renderer/components/Preloader';
 
 interface Props {
@@ -22,6 +22,7 @@ interface Props {
   opacity?: number;
   autoInvert?: boolean;
   badgeBackground?: string;
+  inhertTextColor?: boolean;
   badge?: boolean;
   badgeTextColor?: string;
   badgeText?: string;
@@ -62,6 +63,7 @@ export const ToolbarButton = observer(
     toggled,
     dense,
     iconStyle,
+    inhertTextColor,
     id,
   }: Props) => {
     style = { ...style };
@@ -83,6 +85,7 @@ export const ToolbarButton = observer(
       >
         <Icon
           style={{ backgroundImage: `url(${icon})`, ...iconStyle }}
+          inhertTextColor={inhertTextColor}
           size={size}
           dense={dense}
           disabled={disabled}
@@ -126,7 +129,7 @@ export const ToolbarButton = observer(
   size: 20,
   opacity: transparency.icons.active,
   autoInvert: true,
-  badgeBackground: BLUE_500,
+  badgeBackground: DARK_GREEN,
   badgeTextColor: 'white',
   badgeTop: 4,
   badgeRight: 4,

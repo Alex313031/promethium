@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { transparency, BLUE_500 } from '~/renderer/constants';
+import { transparency, BLUE_500, BLUEGREEN } from '~/renderer/constants';
 import { robotoRegular } from '~/renderer/mixins';
 import { ITheme } from '~/interfaces';
 
@@ -31,7 +31,7 @@ export const Circle = styled.div`
   ${({ selected, theme }: { selected: boolean; theme?: ITheme }) => css`
     width: ${selected ? `calc(100% - 8px)` : 0};
     height: ${selected ? `calc(100% - 8px)` : 0};
-    background: ${selected ? BLUE_500 : 'rgba(0, 0, 0, 0.54)'};
+    background: ${selected ? BLUEGREEN : 'rgba(0, 0, 0, 0.54)'};
 
     &::before {
       transition: ${selected ? `opacity 0.5s ease` : 'none'};
@@ -44,7 +44,7 @@ export const Circle = styled.div`
       transform: translate(-50%, -50%);
       border: 2px solid
         ${selected
-          ? BLUE_500
+          ? BLUEGREEN
           : theme.dark
           ? 'rgba(255, 255, 255, 0.54)'
           : 'rgba(0, 0, 0, 0.54)'};
