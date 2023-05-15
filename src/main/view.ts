@@ -79,6 +79,9 @@ export class View {
         transparent: true,
         javascript: true,
       },
+      // @ts-ignore
+      transparent: true,
+      darkTheme: true,
     });
     require('@electron/remote/main').enable(this.browserView.webContents);
 

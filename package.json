@@ -1,7 +1,7 @@
 {
   "name": "promethium",
   "appName": "promethium",
-  "version": "6.1.5",
+  "version": "6.1.6",
   "sideEffects": false,
   "main": "build/main.bundle.js",
   "description": "Extensible, fast, and innovative Electron based web browser with Material UI design elements.",

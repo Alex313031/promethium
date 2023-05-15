@@ -1,9 +1,13 @@
 ----TODO----
 
-update theme
+update theme |IN PROGRESS
 add favicon for ntp
 fix favicon loading
 look at other skye browser commits
+load extensions from ./
+
+Fix custom background
+Fix alt background reloading
 
 add kitteh easter egg
 

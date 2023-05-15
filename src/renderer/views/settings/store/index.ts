@@ -16,6 +16,7 @@ export type SettingsSection =
   | 'language'
   | 'shortcuts'
   | 'downloads'
+  | 'general'
   | 'system'
   | 'search-engines'
   | 'about';

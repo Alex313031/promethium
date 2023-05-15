@@ -6,6 +6,7 @@ import { SettingsSection } from '../../store';
 import { Appearance } from '../Appearance';
 import { AddressBar, ManageSearchEngines } from '../AddressBar';
 import { Privacy } from '../Privacy';
+import { General } from '../General';
 import { About } from '../About';
 import store from '../../store';
 import { NavigationDrawer } from '~/renderer/components/NavigationDrawer';
@@ -26,6 +27,8 @@ import {
   ICON_SHIELD,
   ICON_TRASH,
   ICON_EDIT,
+  ICON_SETTINGS,
+  ICON_WINDOW,
 } from '~/renderer/constants';
 import {
   ContextMenuItem,
@@ -253,11 +256,14 @@ export default observer(() => {
           >
             Address bar
           </MenuItem>
+          <MenuItem icon={ICON_SHIELD} section="privacy">
+            Privacy
+          </MenuItem>
           <MenuItem icon={ICON_DOWNLOAD} section="downloads">
             Downloads
           </MenuItem>
-          <MenuItem icon={ICON_SHIELD} section="privacy">
-            Privacy
+          <MenuItem icon={ICON_WINDOW} section="general">
+            Default Browser
           </MenuItem>
           <a id="about" name="about">
           <MenuItem icon={ICON_ABOUT} id="about" name="about" section="about">
@@ -280,8 +286,9 @@ export default observer(() => {
             {selectedSection === 'search-engines' && <ManageSearchEngines />}
             {selectedSection === 'startup' && <OnStartup />}
             {selectedSection === 'privacy' && <Privacy />}
-            {selectedSection === 'about' && <About />}
             {selectedSection === 'downloads' && <Downloads />}
+            {selectedSection === 'general' && <General />}
+            {selectedSection === 'about' && <About />}
           </LeftContent>
         </Content>
       </Container>
