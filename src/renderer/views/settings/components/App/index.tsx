@@ -247,14 +247,14 @@ export default observer(() => {
             </MenuItem>
           )}
           <MenuItem icon={ICON_POWER} section="startup">
-            On startup
+            On Startup
           </MenuItem>
           <MenuItem
             icon={ICON_SEARCH}
             section="address-bar"
             subSections={['search-engines']}
           >
-            Address bar
+            Address Bar
           </MenuItem>
           <MenuItem icon={ICON_SHIELD} section="privacy">
             Privacy
