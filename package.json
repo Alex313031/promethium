@@ -55,7 +55,7 @@
     "@cliqz/adblocker-electron": "1.22.7",
     "@cliqz/adblocker-electron-preload": "1.22.7",
     "@cliqz/adblocker-extended-selectors": "1.22.7",
-    "@electron/remote": "2.0.9",
+    "@electron/remote": "2.0.10",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.4",
     "@types/animejs": "3.1.7",
     "@types/chrome": "0.0.179",

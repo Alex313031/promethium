@@ -29,7 +29,7 @@
     "maintainer": "Alex313031",
     "vendor": "Alex313031",
     "synopsis": "Extensible, fast, and innovative Electron based web browser with Material UI design elements.",
-    "category": "Network;Browser;",
+    "category": "Network;WebBrowser;",
     "executableName": "promethium",
     "artifactName": "${productName}_${version}_${arch}.${ext}",
     "desktop": {
