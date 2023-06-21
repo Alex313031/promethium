@@ -90,6 +90,7 @@ export NVM_DIR=$HOME/.nvm &&
 source $NVM_DIR/nvm.sh &&
 
 nvm install &&
+yarn run init &&
 yarn install
 }
 case $1 in
