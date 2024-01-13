@@ -2,6 +2,7 @@ import { ipcMain, app, components, webContents } from 'electron';
 import { setIpcMain } from '@wexond/rpc-electron';
 setIpcMain(ipcMain);
 
+// Initialize Electron remote module
 require('@electron/remote/main').initialize();
 
 if (process.env.NODE_ENV === 'development') {
@@ -18,13 +19,8 @@ app.name = isNightly ? 'Promethium Nightly' : 'Promethium';
 
 (process.env as any)['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
 
-// Enable experimental web features
-//app.commandLine.appendSwitch('enable-experimental-web-platform-features');
 // Including new Canvas2D APIs
 app.commandLine.appendSwitch('new-canvas-2d-api');
-// These two allow easier local web development
-// Allow file:// URIs to read other file:// URIs
-app.commandLine.appendSwitch('allow-file-access-from-files');
 // Enable local DOM to access all resources in a tree
 app.commandLine.appendSwitch('enable-local-file-accesses');
 // Enable QUIC for faster handshakes

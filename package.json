@@ -60,8 +60,8 @@
     "@types/debug": "4.1.5",
     "@types/jszip": "3.4.1",
     "@types/nedb": "1.8.13",
-    "@types/node": "17.0.17",
-    "@types/node-fetch": "2.6.3",
+    "@types/node": "16.18.70",
+    "@types/node-fetch": "2.6.10",
     "@types/react": "17.0.39",
     "@types/react-dom": "17.0.11",
     "@types/react-helmet": "6.1.6",
@@ -75,8 +75,8 @@
     "concurrently": "7.6.0",
     "copy-webpack-plugin": "10.2.4",
     "cross-env": "7.0.3",
-    "electron": "git+https://github.com/castlabs/electron-releases.git#aa601b2",
-    "electron-builder": "22.14.13",
+    "electron": "git+https://github.com/castlabs/electron-releases#v21.4.4+wvcus",
+    "electron-builder": "23.6.0",
     "electron-to-chromium": "1.4.179",
     "eslint": "8.42.0",
     "eslint-config-prettier": "8.8.0",
@@ -132,5 +132,8 @@
     "hex-to-rgb": "1.0.1",
     "node-fetch": "3.3.2",
     "source-map-support": "0.5.21"
+  },
+  "resolutions": {
+    "electron": "git+https://github.com/castlabs/electron-releases#v21.4.4+wvcus"
   }
 }

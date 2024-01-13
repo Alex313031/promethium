@@ -1,10 +1,9 @@
-import { app, BrowserWindow, shell, ipcRenderer, webFrame } from 'electron';
+import { app, BrowserWindow, contextBridge, shell, ipcRenderer, webFrame } from 'electron';
 
 import AutoComplete from './models/auto-complete';
 import { getTheme } from '~/utils/themes';
 import { ERROR_PROTOCOL, WEBUI_BASE_URL } from '~/constants/files';
 import { injectChromeWebstoreInstallButton } from './chrome-webstore';
-import { contextBridge } from 'electron';
 const tabId = ipcRenderer.sendSync('get-webcontents-id');
 
 export const windowId: number = ipcRenderer.sendSync('get-window-id');
@@ -202,9 +201,12 @@ if (window.location.href.startsWith(WEBUI_BASE_URL)) {
   // TODO: Is this needed anymore?
   ipcRenderer.on('update-settings', async (e, data) => {
     const stringifyData = JSON.stringify(data);
-    await webFrame.executeJavaScript(
-      `this.updateSettings(${stringifyData})`,
-    );
+    const w = await webFrame.executeJavaScript('window');
+    if (w.updateSettings) {
+      w.updateSettings(stringifyData);
+    } else {
+      console.log('No settings to update')
+    }
   });
 
   ipcRenderer.on('credentials-insert', (e, data) => {

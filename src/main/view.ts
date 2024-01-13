@@ -18,8 +18,10 @@ import { TabEvent } from '~/interfaces/tabs';
 import { Queue } from '~/utils/queue';
 import { Application } from './application';
 import { getUserAgentForURL } from './user-agent';
-
 import log from 'electron-log';
+
+// Restrict main.log size to 100Kb
+log.transports.file.maxSize = 1024 * 100;
 
 interface IAuthInfo {
   url: string;
@@ -79,9 +81,6 @@ export class View {
         transparent: true,
         javascript: true,
       },
-      // @ts-ignore
-      transparent: true,
-      darkTheme: true,
     });
     require('@electron/remote/main').enable(this.browserView.webContents);
 

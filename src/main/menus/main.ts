@@ -8,6 +8,7 @@ import { showMenuDialog } from '../dialogs/menu';
 import { getWebUIURL } from '~/common/webui';
 import { resolve, join } from 'path';
 
+const isWin = process.platform === 'win32';
 const isMac = process.platform === 'darwin';
 
 const createMenuItem = (
@@ -319,6 +320,15 @@ export const getMainMenu = () => {
             },
             'Open chrome://gpu',
            ),
+          // Open Chromium Media Internals page to check Codec/Widevine support
+          ...createMenuItem(['CmdOrCtrl+Alt+M'], () => {
+               setTimeout(() => {
+                 const gpuWindow = new BrowserWindow({width: 1024, height: 768, title: "Media Internals"});
+                 gpuWindow.loadURL('chrome://media-internals');
+               });
+            },
+            'Open chrome://media-internals',
+           ),
         ],
       },
     {
@@ -375,7 +385,24 @@ export const getMainMenu = () => {
       submenu: [
         ...createMenuItem(['CmdOrCtrl+Shift+Alt+A'], () => {
                setTimeout(() => {
-                 const AboutWindow = new BrowserWindow({width: 400, height: 300, title: "About Promethium"});
+                 const AboutWindow = new BrowserWindow({
+                   width: 308,
+                   height: 232,
+                   useContentSize: true,
+                   title: "About Promethium",
+                   icon: isWin ? resolve(app.getAppPath(),`static/icons/icon.ico`) : resolve(app.getAppPath(),`static/icons/icon.png`),
+                   webPreferences: {
+                     nodeIntegration: false,
+                     nodeIntegrationInWorker: false,
+                     contextIsolation: false,
+                     sandbox: false,
+                     experimentalFeatures: true,
+                     webviewTag: true,
+                     devTools: true,
+                     preload: resolve(app.getAppPath(),`static/pages/client-preload.js`),
+                   }
+                 });
+                 require('@electron/remote/main').enable(AboutWindow.webContents);
                  const AboutHTML = resolve(app.getAppPath(),`static/pages/about.html`);
                  AboutWindow.loadFile(AboutHTML);
                });

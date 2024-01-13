@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>About Promethium</title>
-<link rel="icon" type="image/png" sizes="32x32" href="./assets/ic_calculator_32.png">
 <style>
 	* {
       box-sizing: border-box;
@@ -18,8 +18,10 @@
 	  color: #fff;
 	  background-color: #24292f;
 	}
-	h2 {
+	h3 {
       text-shadow: 1px 1px 1px #000;
+      text-align: center;
+      align-content: center;
 	}
 	a:link {
       color: #1BE1BE;
@@ -30,16 +32,20 @@
 </style>
 </head>
 <body>
-	<h2>About Promethium</h2>
-        <h4>
-          Promethium is a fork of <a rel="noopener" target="_blank" href="https://github.com/wexond">Wexond Browser</a> by <a rel="noopener" target="_blank" href="https://github.com/Alex313031">Alex313031</a>.
-        </h4>
+	<h3>About Promethium</h3>
+        <hr>
         <p>
-          It is named after <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Promethium">radioactive element &#8470; 61</a>.
-          <br/>
-          It uses <a rel="noopener" target="_blank" href="https://www.electronjs.org">Electron</a> as a base, and combines <a rel="noopener" target="_blank" href="https://react.dev">React.js</a> with <a rel="noopener" target="_blank" href="https://m1.material.io">Material Design</a> principles, and icons from <a rel="noopener" target="_blank" href="https://fonts.google.com/icons">Google's Library</a>.
-          <br/>
-          Wexond was originally developed by <a rel="noopener" target="_blank" href="https://github.com/sentialx">Eryk Rakowski</a>.
+          <span title="App Version"><u>Promethium</u>:&nbsp;v<span class="ver" id="promethium-version"></span></span>
+          <br>
+          <span title="OS Type"><u>OS Type</u>:&nbsp;<span class="ver" id="os-type"></span>&nbsp;<span class="ver" id="arch-type"></span></span>
+          <br>
+          <span title="Electron Version"><a title="Electron Homepage" href="https://www.electronjs.org/" target="_blank" rel="noopener">Electron</a>:&nbsp;<span class="ver" id="electron-version"></span></span>
+          <br>
+          <span title="Chromium Version"><a title="Chromium Homepage" href="https://www.chromium.org/" target="_blank" rel="noopener">Chromium</a>:&nbsp;<span class="ver" id="chrome-version"></span></span>
+          <br>
+          <span title="NodeJS Version"><a title="Node.js Homepage" href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a>:&nbsp;<span class="ver" id="node-version"></span></span>
+          <br>
+          <span title="V8 Version"><a  title="V8 Homepage"href="https://v8.dev/" target="_blank" rel="noopener">V8</a>:&nbsp;<span class="ver" id="v8-version"></span></span>
         </p>
 </body>
 </html>
