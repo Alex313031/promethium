@@ -47,7 +47,7 @@ export const About = () => {
      </Row>
      <Row>
        <p>
-         <a rel="noopener" target="_blank" href="https://github.com/Alex313031/promethium/releases">Version</a>: {AppVer}
+         <a rel="noopener" target="_blank" href="https://github.com/Alex313031/promethium/releases">App Version</a>: {AppVer}
          <br/>
          <br/>
          <small>Copyright © <a href="https://thorium.rocks/about" target="_blank" rel="noopener">Alexander D. Frick</a></small>
