@@ -4,6 +4,7 @@ node_modules
 /build/
 /dist/
 /out/
+/release/
 /electron/
 .DS_Store
 .fusebox
