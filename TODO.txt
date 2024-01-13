@@ -9,7 +9,7 @@ load extensions from ./
 Fix custom background
 Fix alt background reloading
 
-add kitteh easter egg
+add cute easter egg
 
 ------------Notes-----------------
 main accent color:

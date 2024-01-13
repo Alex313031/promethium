@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright(c) 2023 Alex313031
+# Copyright(c) 2024 Alex313031
 
 YEL='\033[1;33m' # Yellow
 CYA='\033[1;96m' # Cyan
@@ -51,7 +51,7 @@ cleanApp () {
 printf "\n" &&
 printf "${bold}${YEL} Cleaning artifacts and node_modules...${c0}\n" &&
 	
-yarn run clean
+npm run clean
 }
 case $1 in
 	--clean) cleanApp; exit 0;;
@@ -62,7 +62,7 @@ distcleanApp () {
 printf "\n" &&
 printf "${bold}${YEL} Cleaning build artifacts in \`dist\`...${c0}\n" &&
 
-yarn run distclean
+npm run distclean
 }
 case $1 in
 	--distclean) distcleanApp; exit 0;;
@@ -90,8 +90,8 @@ export NVM_DIR=$HOME/.nvm &&
 source $NVM_DIR/nvm.sh &&
 
 nvm install &&
-yarn run init &&
-yarn install
+npm run init &&
+npm install
 }
 case $1 in
 	-i) bootstrapApp; exit 0;;
@@ -141,8 +141,8 @@ printf "${bold}${GRE} Generating installation packages...${c0}\n" &&
 
 export NODE_ENV=production &&
 
-yarn run build &&
-yarn run dist
+npm run build &&
+npm run dist
 }
 case $1 in
 	--dist) packageApp; exit 0;;
@@ -159,5 +159,4 @@ printf "${bold}${YEL}Use the --dist flag to generate .zip and .deb/.exe packages
 printf "${bold}${YEL}Use the --help flag to show this help.${c0}\n" &&
 printf "\n" &&
 
-tput sgr0 &&
-exit 0
+tput sgr0

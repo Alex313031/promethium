@@ -7,4 +7,4 @@ export const NodeVer = process.versions.node;
 
 // Get Application Version
 const AppVerNo = process.env.npm_package_version;
-export const AppVer = process.env.npm_package_version ? AppVerNo : '6.1.6';
+export const AppVer = AppVerNo;

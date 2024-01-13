@@ -1,7 +1,9 @@
 {
   "name": "promethium",
   "appName": "promethium",
-  "version": "6.1.6",
+  "productName": "Promethium",
+  "applicationId": "com.alex313031.promethium",
+  "version": "6.1.7",
   "sideEffects": false,
   "main": "build/main.bundle.js",
   "description": "Extensible, fast, and innovative Electron based web browser with Material UI design elements.",
@@ -50,12 +52,6 @@
   "devDependencies": {
     "asar": "3.2.0",
     "@babel/core": "7.17.12",
-    "@cliqz/adblocker": "1.22.7",
-    "@cliqz/adblocker-content": "1.22.7",
-    "@cliqz/adblocker-electron": "1.22.7",
-    "@cliqz/adblocker-electron-preload": "1.22.7",
-    "@cliqz/adblocker-extended-selectors": "1.22.7",
-    "@electron/remote": "2.0.10",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.4",
     "@types/animejs": "3.1.7",
     "@types/chrome": "0.0.179",
@@ -127,8 +123,14 @@
     "webpack-merge": "5.8.0"
   },
   "dependencies": {
+    "@cliqz/adblocker": "1.26.12",
+    "@cliqz/adblocker-content": "1.26.12",
+    "@cliqz/adblocker-electron": "1.26.12",
+    "@cliqz/adblocker-electron-preload": "1.26.12",
+    "@cliqz/adblocker-extended-selectors": "1.26.12",
+    "@electron/remote": "2.1.1",
     "@seald-io/nedb": "2.2.2",
-    "electron-log": "4.4.8",
+    "electron-log": "5.0.3",
     "hex-to-rgb": "1.0.1"
   }
 }
