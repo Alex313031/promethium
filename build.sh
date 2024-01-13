@@ -27,7 +27,7 @@ displayHelp () {
 	printf "\n" &&
 	printf "${bold}${GRE}Script to build Promethium.${c0}\n" &&
 	printf "${bold}${YEL}Use the --deps flag to install build dependencies.${c0}\n" &&
-	printf "${bold}${YEL}Use the -i flag to run \`nvm install\` and \`npm install\`.${c0}\n" &&
+	printf "${bold}${YEL}Use the -i flag to run \`nvm install\` and \`yarn install\`.${c0}\n" &&
 	printf "${bold}${YEL}Use the --build flag to build Promethium.${c0}\n" &&
 	printf "${bold}${YEL}Use the --clean flag to run \`npm run clean\`.${c0}\n" &&
 	printf "${bold}${YEL}Use the --distclean flag to run \`npm run distclean\`.${c0}\n" &&
@@ -41,7 +41,7 @@ esac
 
 # Install prerequisites
 installDeps () {
-	sudo apt-get install build-essential git node-gyp nodejs npm && sudo npm install -g yarn
+	sudo apt-get install build-essential git && sudo npm install -g yarn
 }
 case $1 in
 	--deps) installDeps; exit 0;;
@@ -83,15 +83,15 @@ export ELECTRON_CACHE="${PWD}/electron" &&
 export electron_config_cache="${PWD}/electron" &&
 
 printf "\n" &&
-printf "${bold}${GRE} Bootstrapping with nvm install & npm install...${c0}\n" &&
+printf "${bold}${GRE} Bootstrapping with nvm install & yarn install...${c0}\n" &&
 printf "\n" &&
 
 export NVM_DIR=$HOME/.nvm &&
 source $NVM_DIR/nvm.sh &&
 
 nvm install &&
-npm run init &&
-npm install
+yarn run init &&
+yarn install
 }
 case $1 in
 	-i) bootstrapApp; exit 0;;
@@ -116,7 +116,7 @@ printf "${bold}${GRE} Building...${c0}\n" &&
 
 export NODE_ENV=production &&
 
-npm run build
+yarn run build
 }
 case $1 in
 	--build) buildApp; exit 0;;
@@ -141,8 +141,8 @@ printf "${bold}${GRE} Generating installation packages...${c0}\n" &&
 
 export NODE_ENV=production &&
 
-npm run build &&
-npm run dist
+yarn run build &&
+yarn run dist
 }
 case $1 in
 	--dist) packageApp; exit 0;;
@@ -151,7 +151,7 @@ esac
 printf "\n" &&
 printf "${bold}${GRE}Script to build Promethium.${c0}\n" &&
 printf "${bold}${YEL}Use the --deps flag to install build dependencies.${c0}\n" &&
-printf "${bold}${YEL}Use the -i flag to run \`nvm install\` and \`npm install\`.${c0}\n" &&
+printf "${bold}${YEL}Use the -i flag to run \`nvm install\` and \`yarn install\`.${c0}\n" &&
 printf "${bold}${YEL}Use the --build flag to build Promethium.${c0}\n" &&
 printf "${bold}${YEL}Use the --clean flag to run \`npm run clean\`.${c0}\n" &&
 printf "${bold}${YEL}Use the --distclean flag to run \`npm run distclean\`.${c0}\n" &&
