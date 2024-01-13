@@ -1,5 +1,4 @@
 // Electron process.versions exports for About Page
-
 export const ElectronVer = process.versions.electron;
 export const ChromiumVer = process.versions.chrome;
 export const V8Ver = process.versions.v8;
