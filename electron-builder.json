@@ -6,12 +6,12 @@
   },
   "asar": true,
   "productName": "Promethium",
-  "generateUpdatesFilesForAllChannels": false,
   "appId": "com.alex313031.promethium",
+  "generateUpdatesFilesForAllChannels": false,
   "directories": {
       "app": ".",
       "buildResources": "builder",
-      "output": "out"
+      "output": "dist"
   },
   "files": [ "build/**/*", "package.json", "static/**/*" ],
   "extraFiles": [
@@ -23,8 +23,8 @@
   "linux": {
     "target": [
       "zip",
-      "AppImage",
-      "deb"
+      "deb",
+      "appimage"
     ],
     "maintainer": "Alex313031",
     "vendor": "Alex313031",
@@ -42,6 +42,7 @@
   "win": {
     "target": [
       "zip",
+      "portable",
       "nsis"
     ],
     "publisherName": "Alex313031",
@@ -52,11 +53,23 @@
     "include": "static/installer.nsh",
     "shortcutName": "Promethium",
     "artifactName": "Promethium_Setup_${version}_${arch}.${ext}",
+    "uninstallDisplayName": "Promethium ${version}",
     "deleteAppDataOnUninstall": false,
-    "uninstallDisplayName": "Promethium ${version}"
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true
+  },
+  "portable": {
+    "artifactName": "Promethium_Portable_${version}_${arch}.${ext}"
   },
   "mac": {
-    "category": "public.app-category.navigation"
+    "category": "public.app-category.navigation",
+    "icon": "builder/icon.icns",
+    "darkModeSupport": true,
+    "artifactName": "Promethium_${version}_macos_${arch}.${ext}",
+    "target": [
+      "dmg",
+      "zip"
+    ]
   },
   "fileAssociations": [
     {
