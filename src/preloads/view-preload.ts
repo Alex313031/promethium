@@ -203,7 +203,7 @@ if (window.location.href.startsWith(WEBUI_BASE_URL)) {
   ipcRenderer.on('update-settings', async (e, data) => {
     const stringifyData = JSON.stringify(data);
     await webFrame.executeJavaScript(
-      `(window as any).updateSettings(${stringifyData})`,
+      `this.updateSettings(${stringifyData})`,
     );
   });
 
