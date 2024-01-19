@@ -26,6 +26,7 @@
       "deb",
       "appimage"
     ],
+    "icon": "builder/icons",
     "maintainer": "Alex313031",
     "vendor": "Alex313031",
     "synopsis": "Extensible, fast, and innovative Electron based web browser with Material UI design elements.",
