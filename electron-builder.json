@@ -41,6 +41,7 @@
     }
   },
   "win": {
+    "icon": "builder/icon.ico",
     "target": [
       "zip",
       "portable",
