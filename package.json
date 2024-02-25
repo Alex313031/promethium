@@ -42,7 +42,7 @@
     "distclean": "rimraf build && rimraf dist",
     "watch": "concurrently \"npm run dev-renderer\" \"npm run dev-webpack\"",
     "distWin": "npm run build && electron-builder -w --pd dist/win-unpacked",
-    "distMac": "npm run build && electron-builder -m --pd dist/mac-unpacked",
+    "distMac": "npm run build && electron-builder -m --pd dist/mac",
     "distLinux": "npm run build && electron-builder -l",
     "dist": "npm run build && electron-builder --dir",
     "lint": "eslint \"src/**/*.ts*\" \"src/**/*.tsx*\"",
